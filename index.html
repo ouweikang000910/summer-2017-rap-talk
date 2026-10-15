@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7774d9">
+  <meta name="description" content="沿着音乐上下漫游，回到2017那个有嘻哈的夏天。人物、故事与15道中文猜歌题。">
+  <title>回到2017 — 沿着音乐，重温那个夏天</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23bd8fe8'/%3E%3Ccircle cx='32' cy='32' r='21' fill='%237874d9' stroke='%23c1ffff' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23c1ffff'/%3E%3C/svg%3E">
+  <link rel="preload" href="assets/neon-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="回到开头"><i class="mini-record"></i> BACK TO <b>2017</b></a>
+    <nav class="desktop-nav" aria-label="主要章节"><a href="#summer">那个夏天</a><a href="#rappers">那些声音</a><a href="#guess">听歌猜歌名 <span>15</span></a><a href="#memories">那些瞬间</a><a href="#after">故事继续</a></nav>
+    <div class="header-tools"><button id="prepareButton">音乐准备</button><button id="outlineButton" aria-label="打开目录">☰</button><button id="fullscreenButton" aria-label="全屏浏览" title="全屏 · F">⛶</button></div>
+    <div class="reading-progress" aria-hidden="true"><i id="progress"></i></div>
+  </header>
+  <main id="story"></main>
+  <footer class="site-footer"><a href="#home">BACK TO 2017 ↗</a><span>一起听过的音乐，就是共同的回忆。</span><a href="来源说明.txt" target="_blank" rel="noopener">资料与图片来源</a></footer>
+  <button id="notesButton" class="notes-toggle" aria-label="打开讲稿提示" aria-expanded="false" title="讲稿提示 · N">讲稿提示 <kbd>N</kbd></button>
+  <aside id="notes" class="notes-panel" hidden><div class="panel-heading"><span>讲稿提示</span><button data-close="notes" aria-label="关闭讲稿提示">×</button></div><div id="notesContent"></div></aside>
+  <dialog id="outlineDialog"><div class="panel-heading"><span>沿着音乐，往前走</span><button data-close="outlineDialog" aria-label="关闭目录">×</button></div><nav id="chapterList"></nav><p class="dialog-tip">上下滚动浏览 · F 全屏 · N 讲稿 · R 揭晓当前猜歌题</p></dialog>
+  <dialog id="prepareDialog"><div class="panel-heading"><span>准备好你的15首歌</span><button data-close="prepareDialog" aria-label="关闭音乐准备">×</button></div><p class="dialog-intro">导入歌曲或你剪好的片段，设置开始位置，每题播放15秒。文件仅在当前打开期间使用，不会上传。</p><div class="bulk-setup"><label class="button secondary">批量选择音乐<input id="bulkAudio" type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg" multiple aria-label="批量导入音乐"></label><p>按文件名中的歌名自动匹配，也可以逐首选择。</p><strong id="preparedCount">0 / 15 已导入</strong></div><div id="audioSetup"></div><p class="dialog-tip">请使用题目所列演唱版本。未导入时，可用外部播放器放歌，网页负责计时和揭晓。</p><button class="button primary" data-close="prepareDialog">准备好了，开始听歌 ↗</button></dialog>
+  <div id="blackout" hidden><span>按 B 或 Esc 回到网页</span></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript>请启用浏览器的 JavaScript 来浏览演讲内容。</noscript>
+</body>
+</html>
