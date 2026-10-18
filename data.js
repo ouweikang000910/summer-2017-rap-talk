@@ -132,7 +132,29 @@ const artists = [
     "song": "HipHopMan",
     "image": "jin.jpg",
     "position": "30% 30%",
-    "number": "05"
+    "number": "05",
+    "tracks": [
+      {
+        "title": "ABC",
+        "url": "https://music.163.com/#/song?id=138920"
+      },
+      {
+        "title": "Learn Chinese",
+        "url": "https://music.163.com/#/song?id=139030"
+      },
+      {
+        "title": "I Got a Love",
+        "url": "https://music.163.com/#/song?id=139028"
+      },
+      {
+        "title": "香港 Superstar",
+        "url": "https://music.163.com/#/song?id=138944"
+      },
+      {
+        "title": "HipHopMan",
+        "url": "https://music.163.com/#/song?id=1308782193"
+      }
+    ]
   },
   {
     "name": "TIZZY T",
@@ -152,6 +174,22 @@ const artists = [
       {
         "title": "头文字T",
         "url": "https://music.163.com/#/song?id=2100329022"
+      },
+      {
+        "title": "几乎成名",
+        "url": "https://music.163.com/#/song?id=1303273414"
+      },
+      {
+        "title": "想把你留在这里",
+        "url": "https://music.163.com/#/song?id=1303273422"
+      },
+      {
+        "title": "Party是我家",
+        "url": "https://music.163.com/#/song?id=2100329012"
+      },
+      {
+        "title": "Going Go",
+        "url": "https://music.163.com/#/song?id=1303273423"
       }
     ]
   }
