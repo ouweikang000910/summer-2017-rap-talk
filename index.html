@@ -9,12 +9,12 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23bd8fe8'/%3E%3Ccircle cx='32' cy='32' r='21' fill='%237874d9' stroke='%23c1ffff' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23c1ffff'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/neon-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261018c">
-  <link rel="stylesheet" href="deck.css?v=20261018c">
-  <script src="data.js?v=20261018c" defer></script>
-  <script src="audio-library.js?v=20261018c" defer></script>
-  <script src="app.js?v=20261018c" defer></script>
-  <script src="deck.js?v=20261018c" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261018d">
+  <link rel="stylesheet" href="deck.css?v=20261018d">
+  <script src="data.js?v=20261018d" defer></script>
+  <script src="audio-library.js?v=20261018d" defer></script>
+  <script src="app.js?v=20261018d" defer></script>
+  <script src="deck.js?v=20261018d" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -35,12 +35,13 @@
     <div class="panel-heading"><span>准备好你的15首歌</span><button data-close="prepareDialog" aria-label="关闭音乐准备">×</button></div>
     <p class="dialog-intro">选择音乐后，在游戏里按「开始播放」就能直接听。没有倒计时，随时暂停、拖动进度或重新播放。</p>
     <div class="bulk-setup">
-      <label class="button secondary">批量选择音乐<input id="bulkAudio" type="file" accept="audio/*,.mp3,.m4a,.flac,.wav,.ogg,.aac,.opus" multiple aria-label="批量导入音乐"></label>
+      <label class="button secondary">批量选择音乐<input id="bulkAudio" type="file" accept="audio/*,.mp3,.m4a,.flac,.wav,.ogg,.aac,.opus,.ncm" multiple aria-label="批量导入音乐"></label>
       <label class="button secondary">选择音乐文件夹<input id="audioFolder" type="file" webkitdirectory multiple aria-label="选择音乐文件夹"></label>
       <p>按文件名中的歌名自动匹配，也可以逐首选择。</p>
       <strong id="preparedCount">0 / 15 可播放</strong>
     </div>
-    <p class="format-notice">支持 MP3、M4A、FLAC、WAV 等普通音频。网易云下载的 NCM 加密文件无法在浏览器播放。</p>
+    <p class="format-notice"><b>你的歌曲是 NCM 格式？</b><br>NCM 是网易云的加密音频，无法直接在网页播放。请选择音乐平台提供的 MP3、M4A、FLAC、WAV 等普通音频。选择 NCM 时只会提示格式，不会导入为可播放歌曲。</p>
+    <p id="audioImportNotice" class="audio-import-notice" role="status" aria-live="polite" hidden></p>
     <div id="audioSetup"></div>
     <p class="dialog-tip" id="libraryNotice">音乐仅保存在当前设备的此浏览器中，刷新后自动恢复，不会上传到 GitHub。更换设备或清除浏览器数据后需要重新选择。</p>
     <button class="button primary" data-close="prepareDialog">返回游戏，开始听歌 ↗</button>

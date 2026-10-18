@@ -14,7 +14,7 @@ $('#story').innerHTML = `
   <div class="hero-grid grid-texture" aria-hidden="true"></div>
   <div class="hero-inner wrap">
    <div class="hero-copy"><div class="eyebrow light"><i></i> 中文说唱 · 夏日回忆录</div><h1>回到那个<br><em>有嘻哈</em>的夏天<span>。</span></h1><p>从一档综艺，听见一种新的声音。<br>有音乐，有故事，也有你。</p><a href="#summer" class="button primary">沿着音乐，往下走 <span>↓</span></a><span class="hero-small">2017 → 2026 / 一起重温那个夏天</span></div>
-   <div class="hero-art" aria-hidden="true"><div class="outline-year">2017</div><div class="photo-strip"><img src="assets/gai.jpg" alt=""><img src="assets/air.jpg" alt=""><img src="assets/pgone.jpg" alt=""></div>${vinyl()}<span class="neon-star">✳</span><span class="art-caption">PRESS PLAY.<br>REWIND THE SUMMER.</span></div>
+   <div class="hero-art" aria-hidden="true"><div class="outline-year">2017</div><div class="photo-strip"><img src="assets/gai.jpg" alt=""><img src="assets/afterjourney.jpg" alt=""><img src="assets/pgone.jpg" alt=""></div>${vinyl()}<span class="neon-star">✳</span><span class="art-caption">PRESS PLAY.<br>REWIND THE SUMMER.</span></div>
   </div><a href="#summer" class="scroll-invitation"><span>SCROLL TO EXPLORE</span><i>↓</i></a>
  </section>
  <section id="summer" class="summer story-section wrap">
@@ -123,8 +123,9 @@ function updateLibraryUI(){
  });
  $('#preparedCount').textContent=`${Object.keys(audioFiles).length} / 15 可播放`;
 }
+function showAudioFormatNotice(message){const notice=$('#audioImportNotice');notice.hidden=false;notice.textContent=message;}
 async function assignFile(index,file){
- if(/\.(ncm|uc|uc!)$/i.test(file.name)){toast('这是网易云专用加密文件，网页无法播放。请选择 MP3、M4A、FLAC 等普通音频。');return false;}
+ if(/\.(ncm|uc|uc!)$/i.test(file.name)){const message=`检测到网易云加密文件「${file.name}」。这类文件无法在网页中直接播放，请使用音乐平台提供的 MP3、M4A、FLAC 等普通音频。`;showAudioFormatNotice(message);toast('NCM 是加密格式，这个文件没有导入为可播放音频。');return false;}
  if(!file.type.startsWith('audio/')&&!/\.(mp3|m4a|flac|wav|ogg|aac|opus|aiff|aif)$/i.test(file.name)){toast('请选择 MP3、M4A、FLAC、WAV 等音频文件。');return false;}
  stopPlayback();
  if(audioFiles[index])URL.revokeObjectURL(audioFiles[index]);
@@ -136,15 +137,16 @@ async function assignFile(index,file){
  catch(error){toast('音频本次可以播放，但浏览器未能保存。下次打开需要重新选择文件。');}
  updateLibraryUI();updatePlaybackUI();return true;
 }
-$('#audioSetup').innerHTML=songs.map((s,i)=>`<div class="audio-row"><span class="setup-number">${pad(i+1)}</span><div class="setup-song"><b>《${s.title}》</b><small>${s.artist}${s.version?' · '+s.version:''}</small><span class="setup-state" id="audioState${i}">尚未准备</span></div><label class="offset-label">起点 <input type="number" min="0" step="1" value="0" data-offset="${i}" aria-label="${s.title}播放起点秒数"> 秒</label><label class="upload-label"><span id="audioLabel${i}">选择音频</span><input type="file" accept="audio/*,.mp3,.m4a,.flac,.wav,.ogg,.aac,.opus" data-upload="${i}" aria-label="导入${s.title}音频"></label><button class="remove-audio" data-remove-audio="${i}" aria-label="移除${s.title}音频" disabled>移除</button></div>`).join('');
+$('#audioSetup').innerHTML=songs.map((s,i)=>`<div class="audio-row"><span class="setup-number">${pad(i+1)}</span><div class="setup-song"><b>《${s.title}》</b><small>${s.artist}${s.version?' · '+s.version:''}</small><span class="setup-state" id="audioState${i}">尚未准备</span></div><label class="offset-label">起点 <input type="number" min="0" step="1" value="0" data-offset="${i}" aria-label="${s.title}播放起点秒数"> 秒</label><label class="upload-label"><span id="audioLabel${i}">选择音频</span><input type="file" accept="audio/*,.mp3,.m4a,.flac,.wav,.ogg,.aac,.opus,.ncm" data-upload="${i}" aria-label="导入${s.title}音频"></label><button class="remove-audio" data-remove-audio="${i}" aria-label="移除${s.title}音频" disabled>移除</button></div>`).join('');
 async function importFiles(event){
- const files=Array.from(event.target.files);event.target.value='';let matched=0,encrypted=0;
+ const files=Array.from(event.target.files);event.target.value='';let matched=0,encrypted=0;$('#audioImportNotice').hidden=true;
  for(const file of files){
   if(/\.(ncm|uc|uc!)$/i.test(file.name)){encrypted++;continue;}
   const name=normalize(file.name);
   const i=songs.findIndex(s=>[s.title,...(s.aliases||[])].some(t=>name.includes(normalize(t))));
   if(i>=0&&await assignFile(i,file))matched++;
  }
+ if(encrypted)showAudioFormatNotice(`选到了 ${encrypted} 个网易云加密文件（NCM）。这些文件没有被导入，也不能在网页中直接播放。请使用音乐平台提供的 MP3、M4A、FLAC 等普通音频。`);
  if(matched)toast(`已准备 ${matched} 首音乐，现在可以直接在网页里播放。${encrypted?'加密文件无法导入。':''}`);
  else toast(encrypted?'选中的网易云加密文件无法在网页播放，需要 MP3、M4A、FLAC 等普通音频。':'没有匹配到歌名，请按歌名命名文件，或逐首选择。');
 }

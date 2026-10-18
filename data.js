@@ -90,32 +90,32 @@ const artists = [
     ]
   },
   {
-    "name": "AIR",
-    "cn": "艾热 AIR",
-    "era": "2018 · 中国新说唱",
-    "keyword": "旋律和说唱，都可以打动你。",
-    "description": "从2018年的《中国新说唱》舞台走来，他把流畅的说唱、旋律与情感揉在一起。既有力量，也有温柔的表达。",
+    "name": "AFTER JOURNEY",
+    "cn": "艾福杰尼",
+    "era": "2017 · 中国有嘻哈",
+    "keyword": "开口，就有舞台的力量。",
+    "description": "2017年《中国有嘻哈》全国季军。充满力量的嗓音和鲜明的节奏感，是那个夏天让人记住的舞台声音。从《After Journey》到《库尔勒》，把自己的经历唱进作品。",
     "tags": [
-      "旋律说唱",
-      "情感表达",
-      "舞台实力"
+      "力量感嗓音",
+      "节奏张力",
+      "2017全国季军"
     ],
-    "song": "星球坠落",
-    "image": "air.jpg",
-    "position": "50% 35%",
+    "song": "After Journey",
+    "image": "afterjourney.jpg",
+    "position": "50% 30%",
     "number": "04",
     "tracks": [
       {
-        "title": "星球坠落",
-        "url": "https://music.163.com/#/song?id=1296583188"
+        "title": "After Journey",
+        "url": "https://music.163.com/#/song?id=499793088"
       },
       {
-        "title": "别怕变老",
-        "url": "https://music.163.com/#/song?id=1876179147"
+        "title": "库尔勒",
+        "url": "https://music.163.com/#/song?id=501467093"
       },
       {
-        "title": "永不独行",
-        "url": "https://music.apple.com/cn/song/1448469948"
+        "title": "说散就散",
+        "url": "https://music.163.com/#/song?id=523251474"
       }
     ]
   },

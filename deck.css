@@ -56,3 +56,5 @@ body{height:100%;overflow:hidden;background:radial-gradient(ellipse at 15% 80%,#
 
 .remove-audio{font-size:9px;color:#9476ad;padding:5px;white-space:nowrap}.remove-audio:hover:not(:disabled){color:#bd6499}.audio-row .setup-song{flex:1;min-width:140px}
 @media(min-width:761px) and (max-height:740px){.guess>.wrap{justify-content:safe center}.guess-heading{gap:4px 20px}.game-console{margin-top:10px}#gameRound{padding-block:10px}.question-copy,.answer-copy{min-height:88px}.wave{margin-block:5px 9px}.audio-transport{margin-top:8px}.audio-status{margin-top:5px}.round-navigation{margin-top:8px}.game-bottom{padding-block:10px}.game-end{margin-top:6px}}
+
+.audio-import-notice{font-size:11px;line-height:1.9;padding:12px 14px;margin:0 0 12px;color:#995b80;background:#f8ddec99;border:1px solid #dcaac8;border-radius:8px;overflow-wrap:anywhere}.format-notice b{font-weight:600}.audio-import-notice[hidden]{display:none}
