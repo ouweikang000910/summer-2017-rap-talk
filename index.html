@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#7774d9">
-  <meta name="description" content="沿着音乐上下漫游，回到2017那个有嘻哈的夏天。人物、故事与15道中文猜歌题。">
-  <title>回到2017 — 沿着音乐，重温那个夏天</title>
+  <meta name="description" content="一页一页，回到2017那个有嘻哈的夏天。霓虹演讲网页与15道中文猜歌题。">
+  <title>回到2017 — 翻开那个有嘻哈的夏天</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23bd8fe8'/%3E%3Ccircle cx='32' cy='32' r='21' fill='%237874d9' stroke='%23c1ffff' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23c1ffff'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/neon-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="deck.css?v=20261018">
   <script src="data.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=20261018" defer></script>
+  <script src="deck.js?v=20261018" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -21,10 +23,15 @@
     <div class="reading-progress" aria-hidden="true"><i id="progress"></i></div>
   </header>
   <main id="story"></main>
-  <footer class="site-footer"><a href="#home">BACK TO 2017 ↗</a><span>一起听过的音乐，就是共同的回忆。</span><a href="来源说明.txt" target="_blank" rel="noopener">资料与图片来源</a></footer>
+  <footer class="deck-controls" aria-label="演讲翻页控制">
+    <div class="deck-position"><b id="pageNumber">01 <span>/ 17</span></b><span id="pageTitle">回到2017</span></div>
+    <span class="deck-hint">方向键 / 空格翻页 · O 目录 · F 全屏</span>
+    <div class="page-buttons"><button id="prevPage" aria-label="上一页" title="上一页 · ←">← <span>上一页</span></button><button id="nextPage" aria-label="下一页" title="下一页 · →"><span>下一页</span> →</button></div>
+  </footer>
+  <div id="pageAnnouncement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <button id="notesButton" class="notes-toggle" aria-label="打开讲稿提示" aria-expanded="false" title="讲稿提示 · N">讲稿提示 <kbd>N</kbd></button>
   <aside id="notes" class="notes-panel" hidden><div class="panel-heading"><span>讲稿提示</span><button data-close="notes" aria-label="关闭讲稿提示">×</button></div><div id="notesContent"></div></aside>
-  <dialog id="outlineDialog"><div class="panel-heading"><span>沿着音乐，往前走</span><button data-close="outlineDialog" aria-label="关闭目录">×</button></div><nav id="chapterList"></nav><p class="dialog-tip">上下滚动浏览 · F 全屏 · N 讲稿 · R 揭晓当前猜歌题</p></dialog>
+  <dialog id="outlineDialog"><div class="panel-heading"><span>翻开那个夏天</span><button data-close="outlineDialog" aria-label="关闭目录">×</button></div><nav id="chapterList"></nav><p class="dialog-tip">方向键 / 空格翻页 · 手机左右滑动 · F 全屏 · N 讲稿 · R 揭晓当前猜歌题</p><a class="sources-link" href="来源说明.txt" target="_blank" rel="noopener">资料与图片来源 ↗</a></dialog>
   <dialog id="prepareDialog"><div class="panel-heading"><span>准备好你的15首歌</span><button data-close="prepareDialog" aria-label="关闭音乐准备">×</button></div><p class="dialog-intro">导入歌曲或你剪好的片段，设置开始位置，每题播放15秒。文件仅在当前打开期间使用，不会上传。</p><div class="bulk-setup"><label class="button secondary">批量选择音乐<input id="bulkAudio" type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg" multiple aria-label="批量导入音乐"></label><p>按文件名中的歌名自动匹配，也可以逐首选择。</p><strong id="preparedCount">0 / 15 已导入</strong></div><div id="audioSetup"></div><p class="dialog-tip">请使用题目所列演唱版本。未导入时，可用外部播放器放歌，网页负责计时和揭晓。</p><button class="button primary" data-close="prepareDialog">准备好了，开始听歌 ↗</button></dialog>
   <div id="blackout" hidden><span>按 B 或 Esc 回到网页</span></div>
   <div id="toast" role="status" aria-live="polite"></div>
