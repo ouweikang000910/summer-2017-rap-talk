@@ -12,7 +12,10 @@ GAI：https://www.sohu.com/a/206070394_267106
 PG ONE：https://news.sina.cn/2017-09-10/detail-ifykuftz5949076.d.html
 Tizzy T：https://tw.mixfitmag.com/m/trend-news-details.php?id=5006
 Jony J：https://www.sohu.com/a/545869965_121147311
-欧阳靖：https://www.exmoo.com/article/36773.html
+欧阳靖：photoren / Wikimedia Commons，Jin the MC.jpg，2006-03-10，CC BY 2.0
+https://commons.wikimedia.org/wiki/File:Jin_the_MC.jpg
+https://creativecommons.org/licenses/by/2.0/
+原图未修改，网页使用CSS适配裁切展示。
 节目舞台：https://ent.sina.cn/zy/2017-08-25/detail-ifykkfas8174332.d.html
 人物图用于介绍歌手；并非全部为2017年节目现场画面。原图片版权归各权利人。
 
@@ -102,3 +105,20 @@ Tizzy T / 你的男孩
 想把你留在这里：https://music.163.com/#/song?id=1303273422
 Party是我家：https://music.163.com/#/song?id=2100329012
 Going Go：https://music.163.com/#/song?id=1303273423
+
+人物页歌曲试听（2026-10-18）
+官方试听由 iTunes Search API 提供，仅在对应歌手与歌曲介绍页在线串流。
+provided courtesy of iTunes
+https://performance-partners.apple.com/resources/documentation/itunes-store-web-service-search-api/
+https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/UnderstandingSearchResults.html
+官方 iTunes Store 徽章：
+https://marketing.services.apple/itunes-identity-guidelines
+https://www.apple.com/105/media/us/ipoditunes/itunes/2018/3a5387c5_1ebd_4993_9633_ff7264dc27bf/itunes-store-badges/us_uk.zip
+Apple、Apple 标志、iTunes 和 iTunes Store 是 Apple Inc. 在美国及其他国家和地区注册的商标。
+试听音频不下载、不打包进仓库，也不保存进猜歌游戏的本地音乐库。
+GAI — 苦行僧 (Live)：https://music.apple.com/us/song/1851681625
+PG ONE — 语音备忘录：https://music.apple.com/us/song/1527570128
+Jony J — 不用去猜：https://music.apple.com/us/song/1630228473
+艾福杰尼 — After Journey II (Live)：https://music.apple.com/us/song/1851681522
+欧阳靖 — Learn Chinese：https://music.apple.com/us/song/724072371
+Tizzy T — 头文字T (Live)：https://music.apple.com/us/song/1851681520

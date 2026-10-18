@@ -35,7 +35,14 @@ const artists = [
         "title": "兰花草",
         "url": "https://music.apple.com/cn/song/1836838482"
       }
-    ]
+    ],
+    "preview": {
+      "title": "苦行僧 (Live)",
+      "artist": "GAI",
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d3/e8/83/d3e883cf-8f3b-75e6-2c98-1e95be3403f2/mzaf_16337001416134369010.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/us/album/%E8%8B%A6%E8%A1%8C%E5%83%A7-live/1851681518?i=1851681625&uo=4&app=itunes",
+      "trackId": 1851681625
+    }
   },
   {
     "name": "PG ONE",
@@ -50,7 +57,20 @@ const artists = [
     "song": "2017年比赛舞台",
     "image": "pgone.jpg",
     "position": "50% 32%",
-    "number": "02"
+    "number": "02",
+    "preview": {
+      "title": "语音备忘录",
+      "artist": "PG One",
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a2/2f/21/a22f219a-0ed8-4682-bdde-06c884a9f9f2/mzaf_17496182589270146779.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/us/album/%E8%AF%AD%E9%9F%B3%E5%A4%87%E5%BF%98%E5%BD%95/1527570127?i=1527570128&uo=4&app=itunes",
+      "trackId": 1527570128
+    },
+    "tracks": [
+      {
+        "title": "语音备忘录",
+        "url": "https://music.apple.com/us/album/%E8%AF%AD%E9%9F%B3%E5%A4%87%E5%BF%98%E5%BD%95/1527570127?i=1527570128&uo=4&app=itunes"
+      }
+    ]
   },
   {
     "name": "JONY J",
@@ -87,7 +107,14 @@ const artists = [
         "title": "My Man",
         "url": "https://music.apple.com/cn/song/1610248412"
       }
-    ]
+    ],
+    "preview": {
+      "title": "不用去猜",
+      "artist": "Jony J",
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/01/95/11/019511a3-61e9-c265-96b1-b7015cefd3b2/mzaf_13588926942719804483.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/us/album/%E4%B8%8D%E7%94%A8%E5%8E%BB%E7%8C%9C/1630228453?i=1630228473&uo=4&app=itunes",
+      "trackId": 1630228473
+    }
   },
   {
     "name": "AFTER JOURNEY",
@@ -117,7 +144,14 @@ const artists = [
         "title": "说散就散",
         "url": "https://music.163.com/#/song?id=523251474"
       }
-    ]
+    ],
+    "preview": {
+      "title": "After Journey II (Live)",
+      "artist": "After Journey",
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0f/65/af/0f65aff7-4ac9-e0c4-2c46-a3f49a4ef702/mzaf_12686768234284049064.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/us/album/after-journey-ii-live/1851681518?i=1851681522&uo=4&app=itunes",
+      "trackId": 1851681522
+    }
   },
   {
     "name": "MC JIN",
@@ -130,8 +164,8 @@ const artists = [
       "说唱经验"
     ],
     "song": "HipHopMan",
-    "image": "jin.jpg",
-    "position": "30% 30%",
+    "image": "mc-jin.jpg",
+    "position": "46% 10%",
     "number": "05",
     "tracks": [
       {
@@ -154,7 +188,21 @@ const artists = [
         "title": "HipHopMan",
         "url": "https://music.163.com/#/song?id=1308782193"
       }
-    ]
+    ],
+    "preview": {
+      "title": "Learn Chinese",
+      "artist": "MC Jin",
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/2a/99/752a9938-bc3a-5ae9-4ea8-84371dff9059/mzaf_4116315217602127310.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/us/album/learn-chinese/724071282?i=724072371&uo=4&app=itunes",
+      "trackId": 724072371
+    },
+    "imageAlt": "欧阳靖 MC Jin 本人照片，photoren 摄于2006年",
+    "photoCredit": {
+      "name": "photoren",
+      "url": "https://commons.wikimedia.org/wiki/File:Jin_the_MC.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+    }
   },
   {
     "name": "TIZZY T",
@@ -191,7 +239,14 @@ const artists = [
         "title": "Going Go",
         "url": "https://music.163.com/#/song?id=1303273423"
       }
-    ]
+    ],
+    "preview": {
+      "title": "头文字T (Live)",
+      "artist": "Tizzy T",
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f4/f9/a0/f4f9a0d6-7318-04b5-c8bb-c9ef9611dbf7/mzaf_16581971305026744707.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/us/album/%E5%A4%B4%E6%96%87%E5%AD%97t-live/1851681518?i=1851681520&uo=4&app=itunes",
+      "trackId": 1851681520
+    }
   }
 ];
 const songs = [

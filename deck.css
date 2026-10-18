@@ -58,3 +58,15 @@ body{height:100%;overflow:hidden;background:radial-gradient(ellipse at 15% 80%,#
 @media(min-width:761px) and (max-height:740px){.guess>.wrap{justify-content:safe center}.guess-heading{gap:4px 20px}.game-console{margin-top:10px}#gameRound{padding-block:10px}.question-copy,.answer-copy{min-height:88px}.wave{margin-block:5px 9px}.audio-transport{margin-top:8px}.audio-status{margin-top:5px}.round-navigation{margin-top:8px}.game-bottom{padding-block:10px}.game-end{margin-top:6px}}
 
 .audio-import-notice{font-size:11px;line-height:1.9;padding:12px 14px;margin:0 0 12px;color:#995b80;background:#f8ddec99;border:1px solid #dcaac8;border-radius:8px;overflow-wrap:anywhere}.format-notice b{font-weight:600}.audio-import-notice[hidden]{display:none}
+
+/* Artist song previews are independent of the listening quiz. */
+.artist-preview{margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}
+.artist-preview-main{display:flex;align-items:center;gap:10px}.preview-note{color:#a475bc;font-size:21px;flex-shrink:0}
+.preview-copy{min-width:0;flex:1}.preview-copy>b{display:block;font-size:12px;line-height:1.5;font-weight:500;color:#8470a8;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.preview-copy>span{display:block;font-size:9px;line-height:1.7;color:#9290b5;margin-top:2px}
+.artist-preview button{font-size:10px;white-space:nowrap;border:1px solid #baa3d399;border-radius:5px;padding:8px 12px;color:#8e6eac;background:#f4edff80;min-height:34px}
+.artist-preview button:hover{background:#fff9}.preview-playing .preview-note{color:#9272c1}
+.preview-source{display:flex;align-items:center;gap:10px;margin-top:9px}.itunes-badge{display:block;padding:3px;flex-shrink:0}.itunes-badge img{display:block;width:auto;height:30px;max-width:none;filter:none;box-shadow:none}.preview-source>small{font:8px/1.6 var(--sans);color:#9993b2}
+.artist-portrait>.portrait-credit{top:auto;bottom:11px;left:20px;right:15px;font-size:8px;letter-spacing:0;color:#fff;z-index:3}.portrait-credit a{text-decoration:underline;text-underline-offset:2px}
+@media(min-width:761px){.artist-detail .artist-english{margin-top:16px}.artist-detail .artist-songs{margin-top:16px;padding-top:13px}.artist-detail .track-heading{margin-bottom:10px}.artist-detail .tags{margin-top:20px}}
+@media(min-width:761px) and (max-height:740px){.artist-detail h2{font-size:38px;margin:9px 0 14px}.artist-detail .artist-keyword{font-size:18px;margin-bottom:12px}.artist-detail .artist-english{margin-top:12px}.artist-detail .tags{margin-top:14px}.artist-detail .artist-songs{margin-top:12px;padding-top:10px}.artist-detail .track-links a{padding:5px 9px}.artist-preview{margin-top:12px;padding-top:9px}.preview-source{margin-top:6px}.artist-preview button{padding:6px 10px;min-height:32px}}
+@media(max-width:760px){.artist-preview{margin-top:18px;padding-top:14px}.preview-copy>b{font-size:12px}.preview-copy>span{font-size:9px}.artist-preview button{font-size:10px}.artist-detail{padding-bottom:35px}.artist-portrait>.portrait-credit{left:15px;font-size:7px}}

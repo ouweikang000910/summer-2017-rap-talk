@@ -3,8 +3,8 @@
  const makeSlide=(id,classes,html)=>{const el=document.createElement('section');el.id=id;el.className=`story-section ${classes}`;el.innerHTML=html;return el;};
  const rapperPages=artists.map((a,i)=>{
   const el=makeSlide(i===0?'rappers':`rapper-${i+1}`,'artist-slide wrap',`
-   <div class="artist-portrait"><img src="assets/${a.image}" alt="${esc(a.cn)}人物照片" style="object-position:${a.position}"><span>${a.number} / 06 · THOSE VOICES</span><b>${a.name}</b></div>
-   <div class="artist-detail">${label(3,`那些声音 / ${a.number}`)}<span class="artist-english">${a.era||a.name}</span><h2>${a.cn}</h2><p class="artist-keyword">${a.keyword}</p><p class="artist-description">${a.description}</p><div class="tags">${a.tags.map(t=>`<span>${t}</span>`).join('')}</div>${a.tracks?.length?`<div class="artist-songs"><span class="track-heading">代表作 · 点击听歌</span><div class="track-links">${a.tracks.map(t=>`<a href="${t.url}" target="_blank" rel="noopener noreferrer">♫ ${t.title} <i>↗</i></a>`).join('')}</div></div>`:`<div class="artist-track"><span>♫</span><small>${a.song}</small></div>`}</div>`);
+   <div class="artist-portrait"><img src="assets/${a.image}" alt="${esc(a.imageAlt||a.cn+'人物照片')}" style="object-position:${a.position}"><span>${a.number} / 06 · THOSE VOICES</span><b>${a.name}</b>${a.photoCredit?`<span class="portrait-credit"><a href="${a.photoCredit.url}" target="_blank" rel="noopener noreferrer">Photo: ${a.photoCredit.name}</a> · <a href="${a.photoCredit.licenseUrl}" target="_blank" rel="noopener noreferrer">${a.photoCredit.license}</a></span>`:''}</div>
+   <div class="artist-detail">${label(3,`那些声音 / ${a.number}`)}<span class="artist-english">${a.era||a.name}</span><h2>${a.cn}</h2><p class="artist-keyword">${a.keyword}</p><p class="artist-description">${a.description}</p><div class="tags">${a.tags.map(t=>`<span>${t}</span>`).join('')}</div>${a.tracks?.length?`<div class="artist-songs"><span class="track-heading">代表作 · 点击听歌</span><div class="track-links">${a.tracks.map(t=>`<a href="${t.url}" target="_blank" rel="noopener noreferrer">♫ ${t.title} <i>↗</i></a>`).join('')}</div></div>`:`<div class="artist-track"><span>♫</span><small>${a.song}</small></div>`}${ArtistAudio.markup(a,i)}</div>`);
   el.dataset.artist=i;el.dataset.title=a.cn;return el;
  });
  $('#rappers').replaceWith(...rapperPages);
@@ -36,6 +36,7 @@
   const previous=slides[current],next=slides[index],direction=index>current?1:-1,moveFocus=previous?.contains(document.activeElement);
   if(previous){previous.inert=true;if(previous.id==='guess')stopPlayback(true);}
   current=index;activeSection=next.id;next.hidden=false;next.inert=false;next.scrollTop=0;
+  ArtistAudio.enter(next.dataset.artist===undefined?null:Number(next.dataset.artist));
   if(previous&&animate&&!motion.matches){
    previous.hidden=false;previous.style.zIndex='1';next.style.zIndex='2';
    const options={duration:480,easing:'cubic-bezier(.22,.8,.25,1)',fill:'both'};

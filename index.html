@@ -9,12 +9,13 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23bd8fe8'/%3E%3Ccircle cx='32' cy='32' r='21' fill='%237874d9' stroke='%23c1ffff' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23c1ffff'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/neon-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/Inter-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261018e">
-  <link rel="stylesheet" href="deck.css?v=20261018e">
-  <script src="data.js?v=20261018e" defer></script>
-  <script src="audio-library.js?v=20261018e" defer></script>
-  <script src="app.js?v=20261018e" defer></script>
-  <script src="deck.js?v=20261018e" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261018f">
+  <link rel="stylesheet" href="deck.css?v=20261018f">
+  <script src="data.js?v=20261018f" defer></script>
+  <script src="audio-library.js?v=20261018f" defer></script>
+  <script src="app.js?v=20261018f" defer></script>
+  <script src="artist-audio.js?v=20261018f" defer></script>
+  <script src="deck.js?v=20261018f" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -47,6 +48,7 @@
     <button class="button primary" data-close="prepareDialog">返回游戏，开始听歌 ↗</button>
   </dialog>
   <audio id="quizAudio" preload="metadata" hidden></audio>
+  <audio id="artistAudio" preload="none" hidden></audio>
   <div id="blackout" hidden><span>按 B 或 Esc 回到网页</span></div>
   <div id="toast" role="status" aria-live="polite"></div>
   <noscript>请启用浏览器的 JavaScript 来浏览演讲内容。</noscript>
