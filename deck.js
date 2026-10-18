@@ -1,17 +1,17 @@
 /* One visible page at a time; quiz state remains mounted while presenting. */
 (() => {
- const makeSlide=(id,classes,html,note)=>{const el=document.createElement('section');el.id=id;el.className=`story-section ${classes}`;el.dataset.note=note;el.innerHTML=html;return el;};
+ const makeSlide=(id,classes,html)=>{const el=document.createElement('section');el.id=id;el.className=`story-section ${classes}`;el.innerHTML=html;return el;};
  const rapperPages=artists.map((a,i)=>{
   const el=makeSlide(i===0?'rappers':`rapper-${i+1}`,'artist-slide wrap',`
    <div class="artist-portrait"><img src="assets/${a.image}" alt="${esc(a.cn)}人物照片" style="object-position:${a.position}"><span>${a.number} / 06 · THOSE VOICES</span><b>${a.name}</b></div>
-   <div class="artist-detail">${label(3,`那些声音 / ${a.number}`)}<span class="artist-english">${a.name}</span><h2>${a.cn}</h2><p class="artist-keyword">${a.keyword}</p><p class="artist-description">${artistDescriptions[i]}</p><div class="tags">${a.tags.map(t=>`<span>${t}</span>`).join('')}</div><div class="artist-track"><span>♫</span><small>${a.song}</small></div></div>`,3+i);
+   <div class="artist-detail">${label(3,`那些声音 / ${a.number}`)}<span class="artist-english">${a.era||a.name}</span><h2>${a.cn}</h2><p class="artist-keyword">${a.keyword}</p><p class="artist-description">${a.description}</p><div class="tags">${a.tags.map(t=>`<span>${t}</span>`).join('')}</div>${a.tracks?.length?`<div class="artist-songs"><span class="track-heading">代表作 · 点击听歌</span><div class="track-links">${a.tracks.map(t=>`<a href="${t.url}" target="_blank" rel="noopener noreferrer">♫ ${t.title} <i>↗</i></a>`).join('')}</div></div>`:`<div class="artist-track"><span>♫</span><small>${a.song}</small></div>`}</div>`);
   el.dataset.artist=i;el.dataset.title=a.cn;return el;
  });
  $('#rappers').replaceWith(...rapperPages);
  const memoryPages=memories.map((m,i)=>{
   const el=makeSlide(i===0?'memories':`memory-${i+1}`,'memory-slide wrap',`
    <div class="memory-art"><span class="memory-orbit"></span><div class="memory-mark mark-${m.event}" aria-hidden="true">${['⛓','60','“','?'][i]}</div><span class="memory-art-label">MEMORY / ${pad(i+1)}</span></div>
-   <div class="memory-detail">${label(5,`那些瞬间 / ${pad(i+1)}`)}<span class="small-label">${m.kicker}</span><h2>${m.headline.replace('\n','<br>')}</h2><p>${m.copy.replace('\n','<br>')}</p><div class="memory-question">${m.question}</div>${m.event==='mask'?'<button class="button secondary" data-mask>揭开面具 ↗</button><div class="mask-answer" hidden>HipHopMan · <b>欧阳靖 MC JIN</b></div>':''}</div>`,storyNotes.indexOf(m));
+   <div class="memory-detail">${label(5,`那些瞬间 / ${pad(i+1)}`)}<span class="small-label">${m.kicker}</span><h2>${m.headline.replace('\n','<br>')}</h2><p>${m.copy.replace('\n','<br>')}</p><div class="memory-question">${m.question}</div>${m.event==='mask'?'<button class="button secondary" data-mask>揭开面具 ↗</button><div class="mask-answer" hidden>HipHopMan · <b>欧阳靖 MC JIN</b></div>':''}</div>`);
   el.dataset.title=m.kicker.split(' / ')[1];return el;
  });
  $('#memories').replaceWith(...memoryPages);
@@ -20,7 +20,7 @@
  $('.scroll-invitation').innerHTML='<span>TURN THE PAGE</span><i>→</i>';
  $('.game-end a').textContent='下一页，回到那些名场面 →';
  $('.hero-art').style.removeProperty('--parallax');
- const titles={home:'回到2017',summer:'那个夏天',mentors:'制作人阵容',guess:'听歌猜歌名 · 15题',finale:'冠军之争',after:'故事继续',closing:'夏天还在歌里'};
+ const titles={home:'回到2017',summer:'那个夏天',mentors:'制作人阵容',guess:'听歌猜歌名 · 15题',finale:'说唱走进生活',after:'故事继续',closing:'夏天还在歌里'};
  const slides=[...document.querySelectorAll('#story > .story-section')];
  const motion=matchMedia('(prefers-reduced-motion: reduce)');
  let current=-1,transitions=[],wheelTotal=0,wheelDirection=0,wheelTime=0,wheelLock=0,touchStart=null;
@@ -48,13 +48,13 @@
   $('#progress').style.width=`${(index+1)/slides.length*100}%`;
   document.querySelectorAll('.desktop-nav a,#chapterList a').forEach(a=>{const id=a.hash.slice(1),active=id===next.id||(id==='rappers'&&next.dataset.artist!==undefined)||(id==='memories'&&next.classList.contains('memory-slide'));a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   $('#pageAnnouncement').textContent=`第${index+1}页，共${slides.length}页。${pageTitle(next)}`;
-  if(!$('#notes').hidden)updateNotes();if(moveFocus)next.focus({preventScroll:true});
+  if(moveFocus)next.focus({preventScroll:true});
  }
  $('#prevPage').onclick=()=>goTo(current-1);$('#nextPage').onclick=()=>goTo(current+1);
  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const i=slides.findIndex(el=>el.id===a.hash.slice(1));if(i<0)return;e.preventDefault();goTo(i);});
  addEventListener('popstate',()=>goTo(indexFromHash(),{historyMode:'none'}));
  addEventListener('hashchange',()=>goTo(indexFromHash(),{historyMode:'none'}));
- const blocked=target=>document.querySelector('dialog[open]')||!$('#blackout').hidden||target.closest('input,textarea,select,[contenteditable],#notes');
+ const blocked=target=>document.querySelector('dialog[open]')||!$('#blackout').hidden||target.closest('input,textarea,select,[contenteditable]');
  document.addEventListener('keydown',e=>{
   if(e.defaultPrevented||e.ctrlKey||e.altKey||e.metaKey||e.repeat||blocked(e.target))return;
   if(e.code==='Space'&&e.target.closest('button,a'))return;

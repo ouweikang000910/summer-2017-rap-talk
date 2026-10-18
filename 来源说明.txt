@@ -1,6 +1,6 @@
 内容基础
 https://chatgpt.com/share/6ad060a8-d6f4-83e8-98eb-af0a1d0569f4
-采用最后一版40分钟安排，六位选手使用前一版完整框架。
+演讲从2017年的节目出发，人物与互动歌单也包含之后的作品。
 
 节目资料
 https://www.iq.com/play/中国有嘻哈-2017-9-9-19rre1qpuo?lang=zh_cn
@@ -10,7 +10,7 @@ https://zh.wikipedia.org/wiki/中国有嘻哈
 图片来源
 GAI：https://www.sohu.com/a/206070394_267106
 PG ONE：https://news.sina.cn/2017-09-10/detail-ifykuftz5949076.d.html
-VaVa、Tizzy T：https://tw.mixfitmag.com/m/trend-news-details.php?id=5006
+Tizzy T：https://tw.mixfitmag.com/m/trend-news-details.php?id=5006
 Jony J：https://www.sohu.com/a/545869965_121147311
 欧阳靖：https://www.exmoo.com/article/36773.html
 节目舞台：https://ent.sina.cn/zy/2017-08-25/detail-ifykkfas8174332.d.html
@@ -31,12 +31,45 @@ Motion Background 3：流动灯带的运动节奏。
 Qyron Typeface、The Sonnyfive typeface：字形与标题力量感。
 以上为视觉参考，网页动效由CSS实现。
 
-滚动版新增曲目资料
-快乐崇拜：https://music.apple.com/cn/song/1718337844
-漂向北方：https://music.apple.com/nl/album/漂向北方-feat-王力宏-single/1584044508
-星球坠落：https://music.apple.com/us/playlist/李佳隆代表作/pl.984fe3f10edf46a8a914d2e6d7778ab9?l=zh-Hans-CN
-经济舱：https://www.shazam.com/zh-tw/song/1688697912/经济舱
-目不转睛：https://music.apple.com/cn/playlist/王以太代表作/pl.e3347d3550884873a9efce49b4f52376
-本草纲目：https://music.apple.com/cn/multi-room/1537748057
-火锅底料：https://music.apple.com/us/album/火锅底料-single/1885793240
-其他曲目通过iTunes公开目录核对歌名与演唱者；网页未使用该服务的试听音频。
+2026-10-18 歌单与人物更新
+艾热人物照：https://www.mirrormedia.mg/story/20190118ent025
+GAI代表作：https://music.apple.com/us/playlist/pl.14f14f9e30e54fce808cd7923372f8e6
+Jony J代表作：https://music.apple.com/us/playlist/pl.4c629c59677b4fc2926ddb0a573fad2c
+艾热资料：https://music.apple.com/cn/playlist/air-essentials/pl.b77fbe543b844c87a3ab92d757dcab1f
+歌曲链接通过网易云音乐公开曲目目录、Apple Music歌曲页及iTunes公开目录核对，仅链接到音乐平台，不提取或托管试听音频。
+《迷途羔羊》链接采用网易云目录中顽童MJ116的现场版。
+第13首正式歌名为《别怕变老》；按用户口述“不怕变老”也可匹配导入文件。
+
+第7首正式歌名为《大展鸿图》；“大展宏图”也可匹配导入文件。
+
+15题播放链接（按用户指定顺序）
+01 阿司匹林 / 王以太
+https://music.163.com/#/song?id=1396141677
+02 头文字T / Tizzy T
+https://music.163.com/#/song?id=2100329022
+03 信仰 / Jony J
+https://music.163.com/#/song?id=1325896318
+04 FRIDAY9 II / kkluv
+https://music.163.com/#/song?id=2038203229
+05 不用去猜 / Jony J
+https://music.163.com/#/song?id=1933996314
+06 恭喜发财 / Higher Brothers / 海尔兄弟
+https://music.163.com/#/song?id=1347297661
+07 大展鸿图 / 揽佬 SKAI ISYOURGOD / AR刘夫阳
+https://music.163.com/#/song?id=2618710188
+08 隆里电丝 / 盛宇 / 刘聪 / ICE杨长青
+https://music.163.com/#/song?id=1964443044
+09 麒麟 / 早安
+https://music.163.com/#/song?id=1974459985
+10 星球坠落 / 艾热 AIR / 李佳隆
+https://music.163.com/#/song?id=1296583188
+11 Hey KONG / 刘聪 / KEY.L
+https://music.163.com/#/song?id=1482864953
+12 迷途羔羊 / 顽童 MJ116
+https://music.163.com/#/song?id=2007346948
+13 别怕变老 / 王以太 / 艾热 AIR
+https://music.163.com/#/song?id=1876179147
+14 小丑女 / 杨和苏 / KeyNG
+https://music.163.com/#/song?id=1442320451
+15 危险派对 / 王以太 / 刘至佳
+https://music.163.com/#/song?id=1877996649
