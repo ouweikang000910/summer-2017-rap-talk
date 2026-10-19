@@ -122,3 +122,25 @@ Jony J — 不用去猜：https://music.apple.com/us/song/1630228473
 艾福杰尼 — After Journey II (Live)：https://music.apple.com/us/song/1851681522
 欧阳靖 — Learn Chinese：https://music.apple.com/us/song/724072371
 Tizzy T — 头文字T (Live)：https://music.apple.com/us/song/1851681520
+
+2026-10-19 人物页替换
+第5页由 PG ONE 换为 Bridge 布瑞吉；第8页由欧阳靖换为李大奔 BENZO。
+代表作保留纯文字展示；试听沿用人物页自动播放。
+Bridge 人物照与简介参考：NOWRE 现客2019-06-11专访
+https://nowre.com/nowretv/buruiji-bridgewoyijingzhunbeihaobazhongguoshuochangdaixiangquanshijie/
+图片：https://files.nowre.com/articles/2019/06/Unnamed-file.jpg?x-oss-process=style%2Fmedium
+Bridge 作品参考：Apple Music 编辑歌单及iTunes公开曲目目录
+https://music.apple.com/us/playlist/pl.f7b8502ec5aa4d37a4670cb451b07ab9
+https://music.apple.com/us/artist/1620540145
+《老大》参考上述 NOWRE 专访；《掐死大象的蚂蚁》《Young Bridge》《奔跑吧布瑞吉》《我的黑胶盘》经公开目录核对。
+李大奔本人照片、2017年全国9强参考：浙江在线2017-08-29记者报道
+https://zjnews.zjol.com.cn/zjnews/zjxw/201708/t20170829_4893134.shtml
+图片：https://zjnews.zjol.com.cn/zjnews/zjxw/201708/W020170829270749316975.jpg
+李大奔作品与旋律说唱风格参考：Apple Music 编辑歌单及iTunes公开曲目目录
+https://music.apple.com/mo/playlist/pl.03b5f457dfd246a7b26e271428cc0637
+https://music.apple.com/tw/artist/1440064487
+代表作：《杀死浪漫》《百万甜心》《清一色》《江南少爷》《颜如玉》。
+新增照片原版权归各权利人；原文件未修改，网页使用CSS适配裁切。
+新增官方试听（只在线串流，不下载音频）：
+Bridge — Young Bridge (Live)：https://music.apple.com/us/song/1851682058
+李大奔 — 杀死浪漫：https://music.apple.com/tw/song/1808448268

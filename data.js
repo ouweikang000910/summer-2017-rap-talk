@@ -45,32 +45,49 @@ const artists = [
     }
   },
   {
-    "name": "PG ONE",
-    "cn": "PG ONE",
-    "keyword": "把竞争感，带上舞台。",
-    "description": "从节奏变化到舞台表现，他把比赛的竞争感带到了观众面前。鲜明的节奏处理，是那个夏天让人记住的声音之一。",
+    "name": "BRIDGE",
+    "cn": "Bridge 布瑞吉",
+    "era": "2017 · 中国有嘻哈",
+    "keyword": "重庆口音，轻快又有劲。",
+    "description": "来自重庆，也是 GO$H 厂牌成员。方言咬字、灵活的节奏和活跃的台风，让他在2017年的舞台上被更多人记住。从《老大》到《奔跑吧布瑞吉》，把家乡和日常生活唱进歌里。",
     "tags": [
-      "节奏变化",
-      "舞台表现",
-      "舞台张力"
+      "重庆方言",
+      "GO$H",
+      "舞台活力"
     ],
-    "song": "2017年比赛舞台",
-    "image": "pgone.jpg",
-    "position": "50% 32%",
+    "song": "Young Bridge",
+    "image": "bridge.jpg",
+    "position": "51% 25%",
     "number": "02",
-    "preview": {
-      "title": "语音备忘录",
-      "artist": "PG One",
-      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a2/2f/21/a22f219a-0ed8-4682-bdde-06c884a9f9f2/mzaf_17496182589270146779.plus.aac.p.m4a",
-      "storeUrl": "https://music.apple.com/us/album/%E8%AF%AD%E9%9F%B3%E5%A4%87%E5%BF%98%E5%BD%95/1527570127?i=1527570128&uo=4&app=itunes",
-      "trackId": 1527570128
-    },
     "tracks": [
       {
-        "title": "语音备忘录",
-        "url": "https://music.apple.com/us/album/%E8%AF%AD%E9%9F%B3%E5%A4%87%E5%BF%98%E5%BD%95/1527570127?i=1527570128&uo=4&app=itunes"
+        "title": "老大"
+      },
+      {
+        "title": "掐死大象的蚂蚁"
+      },
+      {
+        "title": "Young Bridge"
+      },
+      {
+        "title": "奔跑吧布瑞吉"
+      },
+      {
+        "title": "我的黑胶盘"
       }
-    ]
+    ],
+    "preview": {
+      "title": "Young Bridge (Live)",
+      "artist": "布瑞吉Bridge",
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/64/44/d5/6444d5b3-ab17-457a-12fb-8d4560679973/mzaf_17162595968245121254.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/us/album/young-bridge-live/1851681921?i=1851682058&uo=4&app=itunes",
+      "trackId": 1851682058
+    },
+    "imageAlt": "Bridge 布瑞吉本人照片，NOWRE 现客2019年专访",
+    "photoCredit": {
+      "name": "NOWRE 现客",
+      "url": "https://nowre.com/nowretv/buruiji-bridgewoyijingzhunbeihaobazhongguoshuochangdaixiangquanshijie/"
+    }
   },
   {
     "name": "JONY J",
@@ -154,54 +171,48 @@ const artists = [
     }
   },
   {
-    "name": "MC JIN",
-    "cn": "欧阳靖 / HipHopMan",
-    "keyword": "藏住名字，先让音乐说话。",
-    "description": "一位有丰富说唱经历的歌手，以HipHopMan的身份蒙面登场。先让大家听见声音，再揭开面具背后的名字。",
+    "name": "BENZO",
+    "cn": "李大奔 BENZO",
+    "era": "2017 · 中国有嘻哈",
+    "keyword": "说唱里，也有好听的旋律。",
+    "description": "2017年《中国有嘻哈》全国9强。擅长把说唱和旋律放在一起，声音松弛、风格鲜明。从《杀死浪漫》到《江南少爷》，既能唱出感情，也能带动舞台气氛。",
     "tags": [
-      "HipHopMan",
-      "蒙面参赛",
-      "说唱经验"
+      "旋律说唱",
+      "个人风格",
+      "2017全国9强"
     ],
-    "song": "HipHopMan",
-    "image": "mc-jin.jpg",
-    "position": "46% 10%",
+    "song": "杀死浪漫",
+    "image": "benzo.jpg",
+    "position": "50% 17%",
     "number": "05",
     "tracks": [
       {
-        "title": "ABC",
-        "url": "https://music.163.com/#/song?id=138920"
+        "title": "杀死浪漫"
       },
       {
-        "title": "Learn Chinese",
-        "url": "https://music.163.com/#/song?id=139030"
+        "title": "百万甜心"
       },
       {
-        "title": "I Got a Love",
-        "url": "https://music.163.com/#/song?id=139028"
+        "title": "清一色"
       },
       {
-        "title": "香港 Superstar",
-        "url": "https://music.163.com/#/song?id=138944"
+        "title": "江南少爷"
       },
       {
-        "title": "HipHopMan",
-        "url": "https://music.163.com/#/song?id=1308782193"
+        "title": "颜如玉"
       }
     ],
     "preview": {
-      "title": "Learn Chinese",
-      "artist": "MC Jin",
-      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/2a/99/752a9938-bc3a-5ae9-4ea8-84371dff9059/mzaf_4116315217602127310.plus.aac.p.m4a",
-      "storeUrl": "https://music.apple.com/us/album/learn-chinese/724071282?i=724072371&uo=4&app=itunes",
-      "trackId": 724072371
+      "title": "杀死浪漫",
+      "artist": "李大奔",
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d4/ff/70/d4ff7058-3af2-e27e-baa1-04675f8a66dd/mzaf_15382098858689398161.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/tw/album/%E6%AE%BA%E6%AD%BB%E6%B5%AA%E6%BC%AB/1808448264?i=1808448268&uo=4&app=itunes",
+      "trackId": 1808448268
     },
-    "imageAlt": "欧阳靖 MC Jin 本人照片，photoren 摄于2006年",
+    "imageAlt": "李大奔 BENZO 本人舞台照片，浙江在线2017年报道",
     "photoCredit": {
-      "name": "photoren",
-      "url": "https://commons.wikimedia.org/wiki/File:Jin_the_MC.jpg",
-      "license": "CC BY 2.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+      "name": "浙江在线",
+      "url": "https://zjnews.zjol.com.cn/zjnews/zjxw/201708/t20170829_4893134.shtml"
     }
   },
   {
