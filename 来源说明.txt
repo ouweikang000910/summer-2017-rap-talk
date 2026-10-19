@@ -193,3 +193,10 @@ https://podcasts.apple.com/us/podcast/id1382690180?i=1000461298914
 https://www.xiaoyuzhoufm.com/episode/66e725595ca6d0ace331a418
 公开音源：https://media.xyzcdn.net/lqzagqfEqlC14YVCDxsKZKs1FfNC.m4a
 以上音乐节目公开音源仅按歌曲位置在线播放30秒，不下载、提取或托管完整歌曲。网页已移除猜歌视频播放器，不提取视频音轨。节目与作品版权归相应权利人；播放依赖原始音频服务的网络可用性。
+
+2026-10-19 第八题音源再次更新（20261019e1，覆盖20261019d1的第八题）
+《隆里电丝》更换为《回音室PLUS》VOL.022的纯音频歌曲片段。节目歌单将30:03—31:55标为《隆里电丝》，网页从30:38起播放30秒，避开主持人对白。
+节目页面：https://www.xiaoyuzhoufm.com/episode/679b1626247d51713ce73eb6
+发布者RSS：https://feed.xyzfm.space/9yc3uw3b3weh
+公开音源：https://media.xyzcdn.net/6737355843dc3a4387e98273/lkIlDpOGVbqOmzwltPAngczXrJ3i.m4a
+网页继续使用公开音源在线播放，不提取视频音轨，不托管完整歌曲。

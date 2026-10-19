@@ -387,11 +387,11 @@ const songs = [
     "hint": "盛宇、刘聪和ICE的声音，带来这首熟悉的旋律。",
     "url": "https://music.163.com/#/song?id=1964443044",
     "audio": {
-      "src": "https://media.xyzcdn.net/lgrzfWZ6Lp7tAK3IFctifsQAbc6s.m4a",
-      "offset": 1302,
+      "src": "https://media.xyzcdn.net/6737355843dc3a4387e98273/lkIlDpOGVbqOmzwltPAngczXrJ3i.m4a",
+      "offset": 1838,
       "clipSeconds": 30,
-      "provider": "长安咖啡时间",
-      "sourceUrl": "https://www.xiaoyuzhoufm.com/episode/64cb661cb3f6c440a8cba926",
+      "provider": "回音室PLUS",
+      "sourceUrl": "https://www.xiaoyuzhoufm.com/episode/679b1626247d51713ce73eb6",
       "version": "原唱 · 30秒节目节选"
     }
   },
