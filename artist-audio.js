@@ -1,7 +1,7 @@
-// Official previews are streamed on artist pages, never added to the quiz library.
+// Artist music streams from its credited source; excerpts stop at their configured end.
 const ArtistAudio = (() => {
  const player = document.getElementById('artistAudio');
- let active = null, generation = 0, loading = false, blocked = false, failed = false;
+ let active = null, generation = 0, loading = false, blocked = false, failed = false, clipFinished = false;
  let resumeWhenVisible = false, enabled = true, wasBlackedOut = false;
  try { enabled = localStorage.getItem('summer2017-artist-sound') !== 'off'; } catch (_) {}
  player.volume = 0.38;
@@ -9,25 +9,31 @@ const ArtistAudio = (() => {
  function markup(artist, index) {
   if (!artist.preview) return '';
   const preview = artist.preview;
+  const credit = preview.sourceUrl
+   ? `<a class="preview-source-link" href="${esc(preview.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(preview.sourceName)} ↗</a><small>${esc(preview.sourceNote)}</small>`
+   : `<a class="itunes-badge" href="${esc(preview.storeUrl)}" target="_blank" rel="noopener noreferrer" aria-label="在 iTunes 查看${esc(preview.title)}"><img src="assets/itunes-store-badge.svg" alt="Buy on iTunes Store" width="96" height="32"></a><small>provided courtesy of iTunes<br>官方试听片段</small>`;
   return `<div class="artist-preview" data-artist-preview="${index}">
-   <div class="artist-preview-main"><span class="preview-note" aria-hidden="true">♫</span><div class="preview-copy"><b>${esc(preview.title)}</b><span data-preview-status>官方试听 · 切换人物自动换歌</span></div><button data-artist-sound="${index}" aria-label="开启${esc(artist.cn)}歌曲试听" aria-pressed="false">开启声音</button></div>
-   <div class="preview-source"><a class="itunes-badge" href="${esc(preview.storeUrl)}" target="_blank" rel="noopener noreferrer" aria-label="在 iTunes 查看${esc(preview.title)}"><img src="assets/itunes-store-badge.svg" alt="Buy on iTunes Store" width="96" height="32"></a><small>provided courtesy of iTunes<br>官方试听片段</small></div>
+   <div class="artist-preview-main"><span class="preview-note" aria-hidden="true">♫</span><div class="preview-copy"><b>${esc(preview.title)}</b><span data-preview-status>${preview.sourceUrl?'歌曲节选':'官方试听'} · 切换人物自动换歌</span></div><button data-artist-sound="${index}" aria-label="开启${esc(artist.cn)}歌曲试听" aria-pressed="false">开启声音</button></div>
+   <div class="preview-source">${credit}</div>
   </div>`;
  }
 
  function update() {
   document.querySelectorAll('[data-artist-preview]').forEach(panel => {
    const index = Number(panel.dataset.artistPreview), current = index === active;
-   const isPlaying = current && !player.paused && !player.ended;
+   const isPlaying = current && !player.paused && !player.ended && !clipFinished;
+   const preview = artists[index].preview;
+   const elapsed = preview.clipSeconds?Math.max(0,Math.min(preview.clipSeconds,player.currentTime-(preview.offset||0))):player.currentTime;
+   const duration = preview.clipSeconds||player.duration;
    const button = panel.querySelector('[data-artist-sound]');
-   let status = '官方试听 · 切换人物自动换歌', action = '开启声音';
+   let status = (preview.sourceUrl?'歌曲节选':'官方试听')+' · 切换人物自动换歌', action = '开启声音';
    if (!enabled) status = '人物音乐已关闭';
    else if (current) {
     if (failed) { status = '试听暂时无法载入，点击重试'; action = '重试播放'; }
     else if (blocked) status = '点击开启声音，之后翻页自动试听';
-    else if (loading) { status = '正在载入官方试听…'; action = '停止等待'; }
-    else if (isPlaying) { status = '正在试听 · '+formatTime(player.currentTime)+' / '+formatTime(player.duration); action = '关闭声音'; }
-    else if (player.ended) { status = '试听结束 · 切换人物自动换歌'; action = '再听一次'; }
+    else if (loading) { status = '正在载入音乐…'; action = '停止等待'; }
+    else if (isPlaying) { status = '正在试听 · '+formatTime(elapsed)+' / '+formatTime(duration); action = '关闭声音'; }
+    else if (player.ended || clipFinished) { status = '试听结束 · 切换人物自动换歌'; action = '再听一次'; }
     else { status = '官方试听已暂停'; action = '播放试听'; }
    }
    panel.querySelector('[data-preview-status]').textContent = status;
@@ -40,7 +46,7 @@ const ArtistAudio = (() => {
 
  function stop() {
   generation++;
-  loading = false; blocked = false; failed = false; resumeWhenVisible = false;
+  loading = false; blocked = false; failed = false; clipFinished = false; resumeWhenVisible = false;
   player.pause(); player.removeAttribute('src'); player.load(); active = null;
   update();
  }
@@ -52,7 +58,7 @@ const ArtistAudio = (() => {
   if (document.hidden) { resumeWhenVisible = true; return; }
   const preview = artists[active].preview, token = ++generation;
   if (player.getAttribute('src') !== preview.src) player.src = preview.src;
-  else if (player.ended) player.currentTime = 0;
+  else if (player.ended || clipFinished) player.currentTime = 0;
   loading = true; blocked = false; failed = false; update();
   try {
    await player.play();
@@ -96,7 +102,17 @@ const ArtistAudio = (() => {
   if (event.target.closest('#prepareButton,[data-prepare],#outlineButton')) suspend();
  });
 
- ['timeupdate','playing','pause','ended','loadedmetadata'].forEach(event => player.addEventListener(event,update));
+ player.addEventListener('loadedmetadata',()=>{
+  const preview=artists[active]?.preview;
+  if(preview?.offset)player.currentTime=preview.offset;
+  update();
+ });
+ player.addEventListener('timeupdate',()=>{
+  const preview=artists[active]?.preview;
+  if(preview?.clipSeconds&&player.currentTime>=(preview.offset||0)+preview.clipSeconds){clipFinished=true;player.pause();}
+  update();
+ });
+ ['playing','pause','ended'].forEach(event => player.addEventListener(event,update));
  player.addEventListener('error',() => {
   if (active === null || !player.getAttribute('src')) return;
   loading = false; failed = true; update();

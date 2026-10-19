@@ -55,7 +55,7 @@ const artists = [
       "GO$H",
       "舞台活力"
     ],
-    "song": "Young Bridge",
+    "song": "老大",
     "image": "bridge.jpg",
     "position": "51% 25%",
     "number": "02",
@@ -77,11 +77,14 @@ const artists = [
       }
     ],
     "preview": {
-      "title": "Young Bridge (Live)",
+      "title": "老大",
       "artist": "布瑞吉Bridge",
-      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/64/44/d5/6444d5b3-ab17-457a-12fb-8d4560679973/mzaf_17162595968245121254.plus.aac.p.m4a",
-      "storeUrl": "https://music.apple.com/us/album/young-bridge-live/1851681921?i=1851682058&uo=4&app=itunes",
-      "trackId": 1851682058
+      "src": "https://media.xyzcdn.net/lq3ZeqemKUWrgQe5xSFsolN_hu53.m4a",
+      "offset": 936,
+      "clipSeconds": 30,
+      "sourceName": "音乐灵感 × Bridge",
+      "sourceUrl": "https://www.xiaoyuzhoufm.com/episode/64365d6b9361a4e7c3565a78",
+      "sourceNote": "嘉宾本人选曲节目 · 30秒节选"
     },
     "imageAlt": "Bridge 布瑞吉本人照片，NOWRE 现客2019年专访",
     "photoCredit": {
@@ -181,7 +184,7 @@ const artists = [
       "个人风格",
       "2017全国9强"
     ],
-    "song": "杀死浪漫",
+    "song": "江南少爷",
     "image": "benzo.jpg",
     "position": "50% 17%",
     "number": "05",
@@ -203,11 +206,11 @@ const artists = [
       }
     ],
     "preview": {
-      "title": "杀死浪漫",
+      "title": "江南少爷 (Live)",
       "artist": "李大奔",
-      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d4/ff/70/d4ff7058-3af2-e27e-baa1-04675f8a66dd/mzaf_15382098858689398161.plus.aac.p.m4a",
-      "storeUrl": "https://music.apple.com/tw/album/%E6%AE%BA%E6%AD%BB%E6%B5%AA%E6%BC%AB/1808448264?i=1808448268&uo=4&app=itunes",
-      "trackId": 1808448268
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e0/fb/62/e0fb621a-93f8-6ee6-9ba2-ccc730f3868e/mzaf_15728853457407991493.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/tw/album/%E6%B1%9F%E5%8D%97%E5%B0%91%E7%88%BA-live/1827828546?i=1827828547&uo=4&app=itunes",
+      "trackId": 1827828547
     },
     "imageAlt": "李大奔 BENZO 本人舞台照片，浙江在线2017年报道",
     "photoCredit": {
@@ -267,7 +270,15 @@ const songs = [
     "difficulty": 1,
     "group": "热身",
     "hint": "从熟悉的旋律开始，听见王以太的声音。",
-    "url": "https://music.163.com/#/song?id=1396141677"
+    "url": "https://music.163.com/#/song?id=1396141677",
+    "audio": {
+      "src": "https://media.xyzcdn.net/lu7KZJIU6EE2HDYGSZ1XC9Yrzo0G.m4a",
+      "offset": 1124,
+      "clipSeconds": 30,
+      "provider": "一人之境 × 王以太",
+      "sourceUrl": "https://www.xiaoyuzhoufm.com/episode/672f6b6df373fe5d4df18b1f",
+      "version": "嘉宾作品推荐 · 30秒节目节选"
+    }
   },
   {
     "title": "头文字T",
@@ -275,7 +286,13 @@ const songs = [
     "difficulty": 1,
     "group": "热身",
     "hint": "你的男孩，把节奏带回这个舞台。",
-    "url": "https://music.163.com/#/song?id=2100329022"
+    "url": "https://music.163.com/#/song?id=2100329022",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=2100329022.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=2100329022",
+      "version": "录音室版"
+    }
   },
   {
     "title": "信仰",
@@ -283,7 +300,13 @@ const songs = [
     "difficulty": 2,
     "group": "热身",
     "hint": "把坚持和表达，写进自己的歌里。",
-    "url": "https://music.163.com/#/song?id=1325896318"
+    "url": "https://music.163.com/#/song?id=1325896318",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=1325896318.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=1325896318",
+      "version": "录音室版"
+    }
   },
   {
     "title": "FRIDAY9 II",
@@ -295,7 +318,13 @@ const songs = [
     "difficulty": 2,
     "group": "热身",
     "hint": "熟悉的鼓点，来自kkluv的这首作品。",
-    "url": "https://music.163.com/#/song?id=2038203229"
+    "url": "https://music.163.com/#/song?id=2038203229",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=2009233274.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=2009233274",
+      "version": "录音室版"
+    }
   },
   {
     "title": "不用去猜",
@@ -303,7 +332,13 @@ const songs = [
     "difficulty": 1,
     "group": "热身",
     "hint": "歌名叫不用去猜，今天偏偏要猜一下。",
-    "url": "https://music.163.com/#/song?id=1933996314"
+    "url": "https://music.163.com/#/song?id=1933996314",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=1933996314.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=1933996314",
+      "version": "录音室版"
+    }
   },
   {
     "title": "恭喜发财",
@@ -314,7 +349,13 @@ const songs = [
     "difficulty": 2,
     "group": "进阶",
     "hint": "熟悉的新年祝福，也可以有说唱的律动。",
-    "url": "https://music.163.com/#/song?id=1347297661"
+    "url": "https://music.163.com/#/song?id=1347297661",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=1346931983.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=1346931983",
+      "version": "Higher Brothers 现场版"
+    }
   },
   {
     "title": "大展鸿图",
@@ -326,7 +367,13 @@ const songs = [
     "difficulty": 2,
     "group": "进阶",
     "hint": "来自揽佬与AR刘夫阳的合作作品。",
-    "url": "https://music.163.com/#/song?id=2618710188"
+    "url": "https://music.163.com/#/song?id=2618710188",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=2618710188.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=2618710188",
+      "version": "录音室版"
+    }
   },
   {
     "title": "隆里电丝",
@@ -338,7 +385,13 @@ const songs = [
     "difficulty": 2,
     "group": "进阶",
     "hint": "一起听见这首歌现场版的松弛与律动。",
-    "url": "https://music.163.com/#/song?id=1964443044"
+    "url": "https://music.163.com/#/song?id=1964443044",
+    "video": {
+      "id": "RAvAhnNYiIs",
+      "provider": "iQIYI 官方频道",
+      "version": "《中国说唱巅峰对决》现场视频",
+      "sourceUrl": "https://www.youtube.com/watch?v=RAvAhnNYiIs"
+    }
   },
   {
     "title": "麒麟",
@@ -346,16 +399,28 @@ const songs = [
     "difficulty": 3,
     "group": "进阶",
     "hint": "鲜明的气场，来自早安的声音。",
-    "url": "https://music.163.com/#/song?id=1974459985"
+    "url": "https://music.163.com/#/song?id=1974459985",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=3442460697.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=3442460697",
+      "version": "早安演唱版"
+    }
   },
   {
     "title": "星球坠落",
     "artist": "艾热 AIR / 李佳隆",
-    "version": "《中国新说唱》现场版",
+    "version": "2022现场版",
     "difficulty": 2,
     "group": "进阶",
     "hint": "两种声音碰在一起，留下熟悉的旋律。",
-    "url": "https://music.163.com/#/song?id=1296583188"
+    "url": "https://music.163.com/#/song?id=1296583188",
+    "video": {
+      "id": "64sJXJ_TSHI",
+      "provider": "iQIYI 官方频道",
+      "version": "星球坠落2022 · 现场视频",
+      "sourceUrl": "https://www.youtube.com/watch?v=64sJXJ_TSHI"
+    }
   },
   {
     "title": "Hey KONG",
@@ -363,16 +428,28 @@ const songs = [
     "difficulty": 3,
     "group": "挑战",
     "hint": "听到这首歌，你会想起哪一段生活？",
-    "url": "https://music.163.com/#/song?id=1482864953"
+    "url": "https://music.163.com/#/song?id=1482864953",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=1482864953.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=1482864953",
+      "version": "录音室版"
+    }
   },
   {
     "title": "迷途羔羊",
     "artist": "顽童 MJ116",
     "difficulty": 3,
     "group": "挑战",
-    "hint": "来自顽童MJ116的现场演唱版本。",
+    "hint": "张震岳、顽童等组成的兄弟本色，一起唱出这首熟悉的作品。",
     "url": "https://music.163.com/#/song?id=2007346948",
-    "version": "现场版"
+    "version": "兄弟本色官方MV",
+    "video": {
+      "id": "fma8xxecY38",
+      "provider": "滚石唱片官方频道",
+      "version": "兄弟本色 G.U.T.S. 官方MV",
+      "sourceUrl": "https://www.youtube.com/watch?v=fma8xxecY38"
+    }
   },
   {
     "title": "别怕变老",
@@ -383,7 +460,13 @@ const songs = [
     "difficulty": 3,
     "group": "挑战",
     "hint": "关于陪伴，也关于一起慢慢变老。",
-    "url": "https://music.163.com/#/song?id=1876179147"
+    "url": "https://music.163.com/#/song?id=1876179147",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=2662064367.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=2662064367",
+      "version": "艾热 AIR / 王以太现场版"
+    }
   },
   {
     "title": "小丑女",
@@ -391,7 +474,13 @@ const songs = [
     "difficulty": 3,
     "group": "挑战",
     "hint": "来自杨和苏的鲜明表达。",
-    "url": "https://music.163.com/#/song?id=1442320451"
+    "url": "https://music.163.com/#/song?id=1442320451",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=1442320451.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=1442320451",
+      "version": "录音室版"
+    }
   },
   {
     "title": "危险派对",
@@ -399,7 +488,13 @@ const songs = [
     "difficulty": 2,
     "group": "挑战",
     "hint": "最后一首，用熟悉的旋律把气氛拉满。",
-    "url": "https://music.163.com/#/song?id=1877996649"
+    "url": "https://music.163.com/#/song?id=1877996649",
+    "audio": {
+      "src": "https://music.163.com/song/media/outer/url?id=2669853009.mp3",
+      "provider": "网易云音乐",
+      "sourceUrl": "https://music.163.com/song?id=2669853009",
+      "version": "刘至佳现场版 · 原版：王以太 / 刘至佳"
+    }
   }
 ];
 const memoryStories = [

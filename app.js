@@ -32,8 +32,8 @@ $('#story').innerHTML = `
   <p class="gallery-question reveal">你会用哪个词，形容你最喜欢的那个声音？ <span>↗</span></p>
  </div></section>
  <section id="guess" class="guess story-section"><div class="grid-texture" aria-hidden="true"></div><div class="wrap">
-  <div class="guess-heading reveal">${label(4,'把舞台交给大家')}<h2>先别讲了，<em>来听歌！</em></h2><p>15道题，从耳熟能详到进阶挑战。<br>猜对歌名 1 分，歌手再加 1 分，答错不扣分。</p><div class="game-rule"><b>15 <small>题</small></b><span></span><b>随时 <small>播放 / 暂停</small></b><span></span><b>2 <small>组一起玩</small></b></div></div>
-  <div class="game-console reveal"><div class="game-top"><span>LISTEN & GUESS</span><span id="gameProgress">01 / 15</span><button data-prepare class="text-button">准备音乐 ↗</button></div><div id="gameRound"></div><div class="game-bottom"><div class="question-selector" id="questionSelector" aria-label="选择猜歌题目"></div><div class="scoreboard"><span>现场记分</span>${['A','B'].map((t,i)=>`<div class="team"><b>${t}组</b><button data-score="${i},-1" aria-label="${t}组减1分">−</button><strong data-team="${i}">0</strong><button data-score="${i},1" aria-label="${t}组加1分">+</button></div>`).join('')}</div></div></div>
+  <div class="guess-heading reveal">${label(4,'把舞台交给大家')}<h2>先别讲了，<em>来听歌！</em></h2><p>15道题，从耳熟能详到进阶挑战。<br>听到熟悉的旋律，就说出歌名和歌手。</p><div class="game-rule"><b>15 <small>题</small></b><span></span><b>随时 <small>播放 / 暂停</small></b><span></span><b>一起 <small>听歌猜歌</small></b></div></div>
+  <div class="game-console reveal"><div class="game-top"><span>LISTEN & GUESS</span><span id="gameProgress">01 / 15</span><button data-prepare class="text-button">音乐设置 ↗</button></div><div id="gameRound"></div><div class="game-bottom"><div class="question-selector" id="questionSelector" aria-label="选择猜歌题目"></div></div></div>
   <div class="game-end"><span>从2017年的声音，听到后来新的作品。</span><a href="#memories">继续往下，回到那些名场面 ↓</a></div>
  </div></section>
  <section id="memories" class="memories story-section wrap">
@@ -51,57 +51,81 @@ $('#story').innerHTML = `
  </section>
  <section id="closing" class="closing story-section"><div class="closing-year" aria-hidden="true">2017</div><div class="wrap reveal">${label(8,'回到那个夏天')}<h2>有些夏天，<br>会一直<em>在歌里。</em></h2><p>谢谢你，和我一起回到2017。<br>希望今天，你也记住了一首歌、一个人、一种声音。</p><span class="closing-thanks">THANK YOU <i>✳</i></span><a href="#guess" class="text-button">还想听？回到猜歌区 ↗</a></div></section>`;
 
-let round=0, scores=[0,0], revealed=new Set(), audioFiles={}, audioOffsets={};
-let audio=$('#quizAudio'), playing=false, loading=false, generation=0, hasStarted=false;
+let round=0, revealed=new Set(), audioFiles={}, audioOffsets={};
+let audio=$('#quizAudio'), playing=false, loading=false, generation=0, hasStarted=false, clipFinished=false;
 let activeSection='home';
 const audioRecords=new Map(), savedTracks=new Set();
+const trackSource=index=>audioFiles[index]||songs[index].audio?.src||'';
+const videoSource=index=>!audioFiles[index]&&songs[index].video;
+const hasTrack=index=>Boolean(trackSource(index)||videoSource(index));
+const clipStart=()=>audioFiles[round]?audioOffsets[round]||0:(songs[round].audio?.offset||audioOffsets[round]||0);
+const clipLength=()=>!audioFiles[round]&&songs[round].audio?.clipSeconds||0;
+const clipDuration=()=>clipLength()|| (Number.isFinite(audio.duration)?audio.duration:0);
 const pad=n=>String(n).padStart(2,'0');
 const formatTime=n=>Number.isFinite(n)?`${Math.floor(n/60)}:${pad(Math.floor(n%60))}`:'0:00';
 const normalize=s=>s.toLowerCase().replace(/[^a-z0-9\u4e00-\u9fff]/g,'');
 function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('visible');clearTimeout(toast.timeout);toast.timeout=setTimeout(()=>el.classList.remove('visible'),4500);}
 function updatePlaybackUI(){
  const button=$('[data-play]');
- if(button){button.textContent=loading?'准备播放…':playing?'Ⅱ 暂停播放':hasStarted&&!audio.ended?'▶ 继续播放':'▶ 开始播放';button.setAttribute('aria-pressed',String(playing));}
+ if(button){button.textContent=loading?'准备播放…':playing?'Ⅱ 暂停播放':hasStarted&&!audio.ended&&!clipFinished?'▶ 继续播放':'▶ 开始播放';button.setAttribute('aria-pressed',String(playing));}
  $('#gameRound').classList.toggle('is-playing',playing);
- const duration=Number.isFinite(audio.duration)?audio.duration:0;
+ const duration=clipDuration();
+ const elapsed=clipLength()?Math.max(0,Math.min(duration,audio.currentTime-clipStart())):audio.currentTime;
  const seek=$('[data-seek]');
- if(seek){seek.disabled=!audioFiles[round]||!duration;seek.max=String(duration||1);seek.value=String(audio.currentTime||0);}
- if($('[data-elapsed]'))$('[data-elapsed]').textContent=formatTime(audio.currentTime);
+ if(seek){seek.disabled=!trackSource(round)||!duration||audio.readyState<1;seek.max=String(duration||1);seek.value=String(elapsed||0);}
+ if($('[data-elapsed]'))$('[data-elapsed]').textContent=formatTime(elapsed);
  if($('[data-duration]'))$('[data-duration]').textContent=formatTime(duration);
  const status=$('[data-audio-status]');
- if(status)status.textContent=loading?'正在载入音频…':playing?'正在本页播放':audioFiles[round]?(savedTracks.has(round)?'音频已保存 · 刷新后仍可播放':'音频已就绪 · 点击开始播放'):'本题待准备音频 · 支持 MP3 / M4A / FLAC';
+ if(status)status.textContent=loading?'正在载入音频…':playing?'正在本页播放':videoSource(round)?'官方视频 · 在本页播放器内播放':audio.error?'在线音源暂时无法载入 · 点击重试':audioFiles[round]?(savedTracks.has(round)?'音频已保存 · 刷新后仍可播放':'本地音频已就绪'):songs[round].audio?'在线音源已就绪 · 点击开始播放':'本题暂缺可播放音源';
 }
 function prepareCurrentAudio(){
- const source=audioFiles[round];
+ const source=trackSource(round);
  if(source&&audio.getAttribute('src')!==source){
   audio.src=source;
   audio.load();
+  if(clipStart())audio.currentTime=clipStart();
  }
 }
 function renderGame(){
  const s=songs[round],isRevealed=revealed.has(round);
  $('#gameProgress').textContent=`${pad(round+1)} / 15`;
- $('#gameRound').innerHTML=`<div class="game-disc">${vinyl()}<div class="round-number"><span>ROUND</span><b>${pad(round+1)}</b></div></div><div class="game-content"><div class="round-meta"><span>${s.group}题</span><span class="difficulty" aria-label="难度${s.difficulty}星">${'★'.repeat(s.difficulty)}${'☆'.repeat(4-s.difficulty)}</span></div><div class="question-copy" ${isRevealed?'hidden':''}><h3>这首歌，<br><em>你听出来了吗？</em></h3><p>听到熟悉的旋律，就举手抢答。</p></div><div class="answer-copy" ${isRevealed?'':'hidden'}><span>ANSWER / 答案揭晓</span><h3>《${s.title}》</h3><b>${s.artist}</b><p>${s.hint}</p></div>${wave()}<div class="playback-controls"><button class="button primary" data-play aria-pressed="false">▶ 开始播放</button><button class="button secondary" data-reveal ${isRevealed?'disabled':''}>揭晓答案 <kbd>R</kbd></button><button class="replay-button" data-replay aria-label="从设定起点重新播放" title="重新播放" ${audioFiles[round]?'':'disabled'}>↺</button></div><div class="audio-transport"><span data-elapsed>0:00</span><input type="range" data-seek min="0" max="1" value="0" step="0.1" aria-label="歌曲播放进度" disabled><span data-duration>0:00</span></div><div class="audio-status"><span data-audio-status></span><button data-prepare class="audio-prepare">${audioFiles[round]?'更换音频':'准备音频'}</button></div><div class="round-navigation"><button data-prev ${round===0?'disabled':''}>← 上一题</button>${isRevealed?'<button data-reset-round>再猜一次</button>':'<span>歌名 1 分 · 歌手 1 分</span>'}<button data-next ${round===songs.length-1?'disabled':''}>下一题 →</button></div></div>`;
+ $('#gameRound').innerHTML=`<div class="game-disc">${vinyl()}<div class="round-number"><span>ROUND</span><b>${pad(round+1)}</b></div></div><div class="game-content"><div class="round-meta"><span>${s.group}题</span><span class="difficulty" aria-label="难度${s.difficulty}星">${'★'.repeat(s.difficulty)}${'☆'.repeat(4-s.difficulty)}</span></div><div class="question-copy" ${isRevealed?'hidden':''}><h3>这首歌，<br><em>你听出来了吗？</em></h3><p>听到熟悉的旋律，就举手抢答。</p></div><div class="answer-copy" ${isRevealed?'':'hidden'}><span>ANSWER / 答案揭晓</span><h3>《${s.title}》</h3><b>${s.artist}</b><p>${s.hint}</p>${!audioFiles[round]&&(s.audio||s.video)?`<small class="quiz-source">${esc((s.audio||s.video).provider)} · ${esc((s.audio||s.video).version)}</small>`:''}</div>${wave()}<div class="playback-controls"><button class="button primary" data-play aria-pressed="false">▶ 开始播放</button><button class="button secondary" data-reveal ${isRevealed?'disabled':''}>揭晓答案 <kbd>R</kbd></button><button class="replay-button" data-replay aria-label="从设定起点重新播放" title="重新播放" ${hasTrack(round)?'':'disabled'}>↺</button></div><div class="audio-transport"><span data-elapsed>0:00</span><input type="range" data-seek min="0" max="1" value="0" step="0.1" aria-label="歌曲播放进度" disabled><span data-duration>0:00</span></div><div class="audio-status"><span data-audio-status></span><button data-prepare class="audio-prepare">${hasTrack(round)?'音源设置':'准备音频'}</button></div><div class="round-navigation"><button data-prev ${round===0?'disabled':''}>← 上一题</button>${isRevealed?'<button data-reset-round>再猜一次</button>':'<span>猜歌名 · 猜歌手</span>'}<button data-next ${round===songs.length-1?'disabled':''}>下一题 →</button></div></div>`;
  $('#questionSelector').innerHTML=songs.map((s,i)=>`<button data-round="${i}" aria-label="第${i+1}题" aria-pressed="${i===round}" class="${i===round?'selected':''} ${revealed.has(i)?'answered':''}">${pad(i+1)}</button>`).join('');
  $('#gameRound').classList.toggle('revealed',isRevealed);
  prepareCurrentAudio();updatePlaybackUI();
 }
 function stopPlayback(){
- generation++;playing=false;loading=false;hasStarted=false;
+ generation++;playing=false;loading=false;hasStarted=false;clipFinished=false;
+ const videoDialog=$('#videoDialog');if(videoDialog?.open)videoDialog.close();
+ $('#videoPlayer')?.replaceChildren();
  audio.pause();audio.removeAttribute('src');audio.load();
  updatePlaybackUI();
 }
 function setRound(index){if(index<0||index>=songs.length)return;stopPlayback();round=index;renderGame();}
 function revealAnswer(){stopPlayback();revealed.add(round);renderGame();}
+function openVideoPlayer(){
+ const source=videoSource(round);if(!source)return;
+ stopPlayback();
+ const frame=document.createElement('iframe');
+ frame.title='官方音乐视频播放器';
+ frame.src=`https://www.youtube-nocookie.com/embed/${source.id}?autoplay=1&playsinline=1&rel=0`;
+ frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+ frame.referrerPolicy='strict-origin-when-cross-origin';
+ frame.allowFullscreen=true;
+ $('#videoCredit').textContent=source.provider+' · 官方视频';
+ $('#videoPlayer').append(frame);$('#videoDialog').showModal();
+}
+$('#videoDialog').addEventListener('close',()=>$('#videoPlayer').replaceChildren());
 async function playClip(){
+ if(videoSource(round)){openVideoPlayer();return;}
  if(loading){stopPlayback();return;}
  if(playing){audio.pause();playing=false;updatePlaybackUI();return;}
- if(!audioFiles[round]){
-  toast('这首歌还没有可播放音频，请在音乐准备中选择 MP3、M4A 或 FLAC 文件。');
+ if(!trackSource(round)){
+  toast('这首暂未找到可用的公开音源，可在音乐准备中添加普通音频文件。');
   $('#prepareDialog').showModal();return;
  }
  prepareCurrentAudio();
- if(audio.ended)audio.currentTime=audioOffsets[round]||0;
+ if(audio.ended||clipFinished){audio.currentTime=clipStart();clipFinished=false;}
  const token=++generation;loading=true;updatePlaybackUI();
  try{
   await audio.play();
@@ -110,18 +134,18 @@ async function playClip(){
  }catch(error){
   if(token!==generation)return;
   loading=false;playing=false;updatePlaybackUI();
-  toast('这个音频无法播放。请换用可正常播放的 MP3、M4A、FLAC 或 WAV 文件。');
+  toast(audioFiles[round]?'这个文件无法播放，请更换普通音频文件。':'在线音源暂时无法载入，请重试或在音源设置中添加本地音频。');
  }
 }
 function updateLibraryUI(){
  songs.forEach((s,i)=>{
   const label=$(`#audioLabel${i}`), state=$(`#audioState${i}`);
   if(label){label.textContent=audioFiles[i]?'更换音频':'选择音频';label.title=audioRecords.get(i)?.name||'';}
-  if(state)state.textContent=audioFiles[i]?(savedTracks.has(i)?`✓ 已保存${audioOffsets[i]?' · 起点 '+audioOffsets[i]+' 秒':''}`:'✓ 本次可播放'):'尚未准备';
-  const offset=$(`[data-offset="${i}"]`);if(offset)offset.value=audioOffsets[i]||0;
+  if(state)state.textContent=audioFiles[i]?(savedTracks.has(i)?`✓ 本地已保存${audioOffsets[i]?' · 起点 '+audioOffsets[i]+' 秒':''}`:'✓ 本地音频'):s.audio?`✓ 在线 · ${s.audio.version}`:s.video?`✓ 本页视频 · ${s.video.provider}`:'暂未找到公开音源';
+  const offset=$(`[data-offset="${i}"]`);if(offset){offset.value=audioOffsets[i]||0;offset.disabled=!audioFiles[i]&&Boolean(s.audio?.clipSeconds||s.video);}
   const remove=$(`[data-remove-audio="${i}"]`);if(remove)remove.disabled=!audioFiles[i];
  });
- $('#preparedCount').textContent=`${Object.keys(audioFiles).length} / 15 可播放`;
+ $('#preparedCount').textContent=`${songs.filter((s,i)=>hasTrack(i)).length} / 15 已配置音源`;
 }
 function showAudioFormatNotice(message){const notice=$('#audioImportNotice');notice.hidden=false;notice.textContent=message;}
 async function assignFile(index,file){
@@ -155,22 +179,25 @@ $('#audioFolder').addEventListener('change',importFiles);
 $('#prepareDialog').addEventListener('close',()=>stopPlayback());
 $('#prepareDialog').addEventListener('cancel',()=>stopPlayback());
 $('#quizAudio').addEventListener('loadedmetadata',()=>{
- const offset=audioOffsets[round]||0;
+ const offset=clipStart();
  if(offset>0)audio.currentTime=Math.min(offset,Math.max(0,audio.duration-0.1));
  updatePlaybackUI();
 });
-['timeupdate','durationchange','seeked'].forEach(event=>audio.addEventListener(event,updatePlaybackUI));
+['timeupdate','durationchange','seeked'].forEach(event=>audio.addEventListener(event,()=>{
+ if(clipLength()&&audio.currentTime>=clipStart()+clipLength()){audio.pause();clipFinished=true;playing=false;loading=false;}
+ updatePlaybackUI();
+}));
 audio.addEventListener('ended',()=>{playing=false;loading=false;updatePlaybackUI();});
 audio.addEventListener('pause',()=>{playing=false;updatePlaybackUI();});
 audio.addEventListener('error',()=>{
  if(!audio.getAttribute('src'))return;
  loading=false;playing=false;updatePlaybackUI();
- if($('[data-audio-status]'))$('[data-audio-status]').textContent='音频无法解码，请更换普通音频文件';
+ if($('[data-audio-status]'))$('[data-audio-status]').textContent=audioFiles[round]?'音频无法解码，请更换普通音频文件':'在线音源暂不可用，请重试或添加本地音频';
 });
 async function saveOffset(target){
  const i=Number(target.dataset.offset),value=Math.max(0,Number(target.value)||0);
  audioOffsets[i]=value;
- if(i===round&&audioFiles[i]&&Number.isFinite(audio.duration))audio.currentTime=Math.min(value,Math.max(0,audio.duration-0.1));
+ if(i===round&&trackSource(i)&&Number.isFinite(audio.duration))audio.currentTime=Math.min(value,Math.max(0,audio.duration-0.1));
  const old=audioRecords.get(i);
  if(old){
   const record={...old,offset:value};audioRecords.set(i,record);
@@ -180,7 +207,7 @@ async function saveOffset(target){
  }
 }
 document.addEventListener('input',event=>{
- if(event.target.matches('[data-seek]')&&Number.isFinite(audio.duration))audio.currentTime=Number(event.target.value);
+ if(event.target.matches('[data-seek]')&&Number.isFinite(audio.duration))audio.currentTime=Number(event.target.value)+(clipLength()?clipStart():0);
  if(event.target.matches('[data-offset]'))saveOffset(event.target);
 });
 document.addEventListener('change',async event=>{
@@ -192,14 +219,14 @@ async function removeAudio(index){
  stopPlayback();
  if(audioFiles[index])URL.revokeObjectURL(audioFiles[index]);
  delete audioFiles[index];delete audioOffsets[index];audioRecords.delete(index);savedTracks.delete(index);
- updateLibraryUI();renderGame();toast('已移除此浏览器中的音频，电脑里的原文件保留。');
+ updateLibraryUI();renderGame();toast(songs[index].audio?'已移除本地音频，恢复在线音源。':'已移除此浏览器中的音频，电脑里的原文件保留。');
 }
 async function restoreAudioLibrary(){
  try{
   const records=await AudioLibrary.all();
   records.forEach(record=>{
    const i=songs.findIndex(song=>song.url===record.key);
-   if(i<0||audioFiles[i]||!(record.blob instanceof Blob))return;
+   if(i<0||audioFiles[i]||!(record.blob instanceof Blob)||/\.(ncm|uc|uc!)$/i.test(record.name||''))return;
    audioFiles[i]=URL.createObjectURL(record.blob);audioOffsets[i]=Math.max(0,Number(record.offset)||0);
    audioRecords.set(i,record);savedTracks.add(i);
   });
@@ -210,8 +237,7 @@ async function fullscreen(){try{if(document.fullscreenElement)await document.exi
 $('#chapterList').innerHTML=chapters.map(([id,name],i)=>`<a href="#${id}"><span>${pad(i+1)}</span><b>${name}</b><i>↗</i></a>`).join('');
 $('#prepareButton').onclick=()=>$('#prepareDialog').showModal();$('#outlineButton').onclick=()=>$('#outlineDialog').showModal();$('#fullscreenButton').onclick=fullscreen;
 document.addEventListener('click',e=>{const t=e.target.closest('button,a');if(!t)return;
- if(t.matches('[data-play]'))playClip();if(t.matches('[data-replay]')){if(audioFiles[round]){prepareCurrentAudio();audio.currentTime=audioOffsets[round]||0;if(!playing)playClip();}}if(t.matches('[data-reveal]'))revealAnswer();if(t.matches('[data-next]'))setRound(round+1);if(t.matches('[data-prev]'))setRound(round-1);if(t.matches('[data-round]'))setRound(Number(t.dataset.round));if(t.matches('[data-reset-round]')){revealed.delete(round);stopPlayback(true);renderGame();}
- if(t.matches('[data-score]')){const [i,d]=t.dataset.score.split(',').map(Number);scores[i]=Math.max(0,scores[i]+d);$(`[data-team="${i}"]`).textContent=scores[i];}
+ if(t.matches('[data-play]'))playClip();if(t.matches('[data-replay]')){if(videoSource(round)){openVideoPlayer();}else if(trackSource(round)){prepareCurrentAudio();clipFinished=false;audio.currentTime=clipStart();if(!playing)playClip();}}if(t.matches('[data-reveal]'))revealAnswer();if(t.matches('[data-next]'))setRound(round+1);if(t.matches('[data-prev]'))setRound(round-1);if(t.matches('[data-round]'))setRound(Number(t.dataset.round));if(t.matches('[data-reset-round]')){revealed.delete(round);stopPlayback(true);renderGame();}
  if(t.matches('[data-remove-audio]'))removeAudio(Number(t.dataset.removeAudio));
  if(t.matches('[data-prepare]'))$('#prepareDialog').showModal();
  if(t.matches('[data-close]'))document.getElementById(t.dataset.close).close();
@@ -221,4 +247,5 @@ document.addEventListener('click',e=>{const t=e.target.closest('button,a');if(!t
 document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.repeat||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)||document.querySelector('dialog[open]'))return;const key=e.key.toLowerCase();if(!$('#blackout').hidden){if(key==='b'||key==='escape')$('#blackout').hidden=true;return;}if(key==='f')fullscreen();if(key==='o')$('#outlineDialog').showModal();if(key==='r'&&activeSection==='guess')revealAnswer();if(key==='b'){stopPlayback();$('#blackout').hidden=false;}});
 addEventListener('beforeunload',()=>{stopPlayback();Object.values(audioFiles).forEach(u=>URL.revokeObjectURL(u));});
 renderGame();
+updateLibraryUI();
 restoreAudioLibrary();

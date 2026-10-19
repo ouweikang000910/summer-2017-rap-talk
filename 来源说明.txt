@@ -25,7 +25,7 @@ https://creativecommons.org/licenses/by/2.0/
 英文与数字：Inter，SIL Open Font License。许可证位于assets文件夹。
 
 歌曲
-网页不附带歌曲音频。导入普通音频后直接在本页播放，音乐仅保存在当前设备的浏览器中，不上传。NCM等加密文件无法在网页播放。
+当前版本已配置12题在线音频和3题官方嵌入视频，歌曲顺序不变。在线音频不打包进仓库；本地导入的普通音频保存在当前浏览器，不上传。NCM等加密文件无法直接在网页播放。详见文末2026-10-19音源更新。
 
 视觉参考（用户Eagle素材库）
 霓虹逻辑：粉色霓虹边缘与发光层次。
@@ -106,7 +106,7 @@ Tizzy T / 你的男孩
 Party是我家：https://music.163.com/#/song?id=2100329012
 Going Go：https://music.163.com/#/song?id=1303273423
 
-人物页歌曲试听（2026-10-18）
+历史人物页歌曲试听（2026-10-18；当前替换见文末）
 官方试听由 iTunes Search API 提供，仅在对应歌手与歌曲介绍页在线串流。
 provided courtesy of iTunes
 https://performance-partners.apple.com/resources/documentation/itunes-store-web-service-search-api/
@@ -141,6 +141,37 @@ https://music.apple.com/mo/playlist/pl.03b5f457dfd246a7b26e271428cc0637
 https://music.apple.com/tw/artist/1440064487
 代表作：《杀死浪漫》《百万甜心》《清一色》《江南少爷》《颜如玉》。
 新增照片原版权归各权利人；原文件未修改，网页使用CSS适配裁切。
-新增官方试听（只在线串流，不下载音频）：
+上次版本官方试听（已由文末指定歌曲替换）：
 Bridge — Young Bridge (Live)：https://music.apple.com/us/song/1851682058
 李大奔 — 杀死浪漫：https://music.apple.com/tw/song/1808448268
+
+2026-10-19 指定歌曲与猜歌音源更新
+Bridge 人物页：《老大》，使用腾讯音乐旗下《音乐灵感》邀请Bridge本人主持的选曲节目；原节目15:36起30秒歌曲片段，在线串流，到时停止。
+https://www.xiaoyuzhoufm.com/episode/64365d6b9361a4e7c3565a78
+原节目公开音源：https://media.xyzcdn.net/lq3ZeqemKUWrgQe5xSFsolN_hu53.m4a
+李大奔人物页：《江南少爷 (Live)》，新说唱2025第7期，iTunes公开宣传试听。
+https://music.apple.com/tw/song/1827828547
+
+猜歌音源（按15题顺序；非全部为录音室原版）：
+01 阿司匹林 / 王以太：《一人之境》邀请王以太对谈并推荐作品，18:44起30秒节目节选。
+https://www.xiaoyuzhoufm.com/episode/672f6b6df373fe5d4df18b1f
+公开节目音源：https://media.xyzcdn.net/lu7KZJIU6EE2HDYGSZ1XC9Yrzo0G.m4a
+02 头文字T / Tizzy T：https://music.163.com/song?id=2100329022
+03 信仰 / Jony J：https://music.163.com/song?id=1325896318
+04 FRIDAY9 II / kkluv：https://music.163.com/song?id=2009233274
+05 不用去猜 / Jony J：https://music.163.com/song?id=1933996314
+06 恭喜发财 / Higher Brothers 现场版：https://music.163.com/song?id=1346931983
+07 大展鸿图 / 揽佬、AR刘夫阳：https://music.163.com/song?id=2618710188
+08 隆里电丝 / 盛宇、刘聪、ICE、Ricky：iQIYI官方现场视频，使用YouTube官方可见播放器。
+https://www.youtube.com/watch?v=RAvAhnNYiIs
+09 麒麟 / 早安：https://music.163.com/song?id=3442460697
+10 星球坠落2022 / 艾热、李佳隆：iQIYI官方现场视频，使用YouTube官方可见播放器。
+https://www.youtube.com/watch?v=64sJXJ_TSHI
+11 Hey KONG / 刘聪：https://music.163.com/song?id=1482864953
+12 迷途羔羊 / 兄弟本色 G.U.T.S.（张震岳、顽童等）：滚石唱片官方MV，使用YouTube官方可见播放器。
+https://www.youtube.com/watch?v=fma8xxecY38
+13 别怕变老 / 艾热、王以太 现场版：https://music.163.com/song?id=2662064367
+14 小丑女 / 杨和苏：https://music.163.com/song?id=1442320451
+15 危险派对 / 刘至佳独唱现场版（原版：王以太/刘至佳）：https://music.163.com/song?id=2669853009
+网易云音频通过平台公开外链在线串流，不保存有时效的CDN签名地址，不提取账号或付费文件。视频完整显示官方播放器和控件，不提取视频音轨。在线资源可用性受平台与访问网络影响。节目音源、音乐及视频的原版权归各权利人。
+本次去除A/B分组和计分，保留自由抢答与15题顺序。
