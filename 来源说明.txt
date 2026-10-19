@@ -25,7 +25,7 @@ https://creativecommons.org/licenses/by/2.0/
 英文与数字：Inter，SIL Open Font License。许可证位于assets文件夹。
 
 歌曲
-当前版本已配置12题在线音频和3题官方嵌入视频，歌曲顺序不变。在线音频不打包进仓库；本地导入的普通音频保存在当前浏览器，不上传。NCM等加密文件无法直接在网页播放。详见文末2026-10-19音源更新。
+当前版本15题均使用纯音频，歌曲顺序不变。在线音频不打包进仓库；本地导入的普通音频保存在当前浏览器，不上传。NCM等加密文件无法直接在网页播放。详见文末2026-10-19音源更新。
 
 视觉参考（用户Eagle素材库）
 霓虹逻辑：粉色霓虹边缘与发光层次。
@@ -152,7 +152,7 @@ https://www.xiaoyuzhoufm.com/episode/64365d6b9361a4e7c3565a78
 李大奔人物页：《江南少爷 (Live)》，新说唱2025第7期，iTunes公开宣传试听。
 https://music.apple.com/tw/song/1827828547
 
-猜歌音源（按15题顺序；非全部为录音室原版）：
+猜歌音源（按15题顺序；历史20261019c4版本，已由下文纯音频替换；非全部为录音室原版）：
 01 阿司匹林 / 王以太：《一人之境》邀请王以太对谈并推荐作品，18:44起30秒节目节选。
 https://www.xiaoyuzhoufm.com/episode/672f6b6df373fe5d4df18b1f
 公开节目音源：https://media.xyzcdn.net/lu7KZJIU6EE2HDYGSZ1XC9Yrzo0G.m4a
@@ -175,3 +175,21 @@ https://www.youtube.com/watch?v=fma8xxecY38
 15 危险派对 / 刘至佳独唱现场版（原版：王以太/刘至佳）：https://music.163.com/song?id=2669853009
 网易云音频通过平台公开外链在线串流，不保存有时效的CDN签名地址，不提取账号或付费文件。视频完整显示官方播放器和控件，不提取视频音轨。在线资源可用性受平台与访问网络影响。节目音源、音乐及视频的原版权归各权利人。
 本次去除A/B分组和计分，保留自由抢答与15题顺序。
+
+2026-10-19 纯音频版本更新（20261019d1，覆盖上一版对应题目）
+第三题《信仰》：Jony J《J HOOD Mixtape》早期版本，曲目ID31260611，与此前《喜新恋旧》ID1325896318不同；网易云官方目录确认两版歌手ID同为784257。
+https://music.163.com/song?id=31260611
+第八题《隆里电丝》：原唱音乐片段，来自《长安咖啡时间》Vol.30的节目音乐，原节目21:42起30秒。
+https://www.xiaoyuzhoufm.com/episode/64cb661cb3f6c440a8cba926
+公开音源：https://media.xyzcdn.net/lgrzfWZ6Lp7tAK3IFctifsQAbc6s.m4a
+第九题《麒麟》：早安2022年歌曲片段，来自《海上电波》vol.52《让人猝不及防的东西》，原节目42:38起30秒。替换此前未关联正式歌手ID的重复目录音源3442460697。
+https://www.xiaoyuzhoufm.com/episode/63ca00ba78910ae65ca1cf13
+公开音源：https://media.xyzcdn.net/lhOlTZzmaGO5w-zbn6m-z3sRYpHE.m4a
+第十题《星球坠落》：艾热/李佳隆2018现场版片段，来自《什么电苔》2020-01-01《影评〈星球大战：天行者崛起〉：迪士尼也慌了》片尾音乐，原节目98:12起30秒。
+https://podcasts.apple.com/us/podcast/id1382690180?i=1000461298914
+节目发布者RSS：https://feeds.smfm2016.com/smfm.xml
+公开音源使用发布者RSS的enclosure地址，非Apple歌曲宣传试听。
+第十二题《迷途羔羊》：张震岳/顽童MJ116原版片段，来自《大B给你放》第二期《站直了别趴下！》片尾音乐，原节目38:48起30秒。
+https://www.xiaoyuzhoufm.com/episode/66e725595ca6d0ace331a418
+公开音源：https://media.xyzcdn.net/lqzagqfEqlC14YVCDxsKZKs1FfNC.m4a
+以上音乐节目公开音源仅按歌曲位置在线播放30秒，不下载、提取或托管完整歌曲。网页已移除猜歌视频播放器，不提取视频音轨。节目与作品版权归相应权利人；播放依赖原始音频服务的网络可用性。

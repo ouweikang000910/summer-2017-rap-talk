@@ -302,10 +302,10 @@ const songs = [
     "hint": "把坚持和表达，写进自己的歌里。",
     "url": "https://music.163.com/#/song?id=1325896318",
     "audio": {
-      "src": "https://music.163.com/song/media/outer/url?id=1325896318.mp3",
+      "src": "https://music.163.com/song/media/outer/url?id=31260611.mp3",
       "provider": "网易云音乐",
-      "sourceUrl": "https://music.163.com/song?id=1325896318",
-      "version": "录音室版"
+      "sourceUrl": "https://music.163.com/song?id=31260611",
+      "version": "J HOOD Mixtape · 早期版本"
     }
   },
   {
@@ -381,16 +381,18 @@ const songs = [
     "aliases": [
       "Lonely Dance"
     ],
-    "version": "《中国说唱巅峰对决》现场版",
+    "version": "原唱 · 音频节选",
     "difficulty": 2,
     "group": "进阶",
-    "hint": "一起听见这首歌现场版的松弛与律动。",
+    "hint": "盛宇、刘聪和ICE的声音，带来这首熟悉的旋律。",
     "url": "https://music.163.com/#/song?id=1964443044",
-    "video": {
-      "id": "RAvAhnNYiIs",
-      "provider": "iQIYI 官方频道",
-      "version": "《中国说唱巅峰对决》现场视频",
-      "sourceUrl": "https://www.youtube.com/watch?v=RAvAhnNYiIs"
+    "audio": {
+      "src": "https://media.xyzcdn.net/lgrzfWZ6Lp7tAK3IFctifsQAbc6s.m4a",
+      "offset": 1302,
+      "clipSeconds": 30,
+      "provider": "长安咖啡时间",
+      "sourceUrl": "https://www.xiaoyuzhoufm.com/episode/64cb661cb3f6c440a8cba926",
+      "version": "原唱 · 30秒节目节选"
     }
   },
   {
@@ -401,25 +403,30 @@ const songs = [
     "hint": "鲜明的气场，来自早安的声音。",
     "url": "https://music.163.com/#/song?id=1974459985",
     "audio": {
-      "src": "https://music.163.com/song/media/outer/url?id=3442460697.mp3",
-      "provider": "网易云音乐",
-      "sourceUrl": "https://music.163.com/song?id=3442460697",
-      "version": "早安演唱版"
-    }
+      "src": "https://media.xyzcdn.net/lhOlTZzmaGO5w-zbn6m-z3sRYpHE.m4a",
+      "offset": 2558,
+      "clipSeconds": 30,
+      "provider": "海上电波",
+      "sourceUrl": "https://www.xiaoyuzhoufm.com/episode/63ca00ba78910ae65ca1cf13",
+      "version": "早安 · 2022版 · 30秒节目节选"
+    },
+    "version": "2022版 · 音频节选"
   },
   {
     "title": "星球坠落",
     "artist": "艾热 AIR / 李佳隆",
-    "version": "2022现场版",
+    "version": "2018现场版 · 音频节选",
     "difficulty": 2,
     "group": "进阶",
     "hint": "两种声音碰在一起，留下熟悉的旋律。",
     "url": "https://music.163.com/#/song?id=1296583188",
-    "video": {
-      "id": "64sJXJ_TSHI",
-      "provider": "iQIYI 官方频道",
-      "version": "星球坠落2022 · 现场视频",
-      "sourceUrl": "https://www.youtube.com/watch?v=64sJXJ_TSHI"
+    "audio": {
+      "src": "https://tk.wavpub.com/WPDL_uzpCvSFwtNTXkPWHfQMhVVdWhHSxHJchCnJfWQLccdWZBzSsYrmXYwKCkL-a8.mp3",
+      "offset": 5892,
+      "clipSeconds": 30,
+      "provider": "什么电苔",
+      "sourceUrl": "https://podcasts.apple.com/us/podcast/id1382690180?i=1000461298914",
+      "version": "艾热 / 李佳隆 · 2018现场版 · 30秒节目节选"
     }
   },
   {
@@ -443,12 +450,14 @@ const songs = [
     "group": "挑战",
     "hint": "张震岳、顽童等组成的兄弟本色，一起唱出这首熟悉的作品。",
     "url": "https://music.163.com/#/song?id=2007346948",
-    "version": "兄弟本色官方MV",
-    "video": {
-      "id": "fma8xxecY38",
-      "provider": "滚石唱片官方频道",
-      "version": "兄弟本色 G.U.T.S. 官方MV",
-      "sourceUrl": "https://www.youtube.com/watch?v=fma8xxecY38"
+    "version": "原版 · 音频节选",
+    "audio": {
+      "src": "https://media.xyzcdn.net/lqzagqfEqlC14YVCDxsKZKs1FfNC.m4a",
+      "offset": 2328,
+      "clipSeconds": 30,
+      "provider": "大B给你放",
+      "sourceUrl": "https://www.xiaoyuzhoufm.com/episode/66e725595ca6d0ace331a418",
+      "version": "张震岳 / 顽童 MJ116 · 30秒节目节选"
     }
   },
   {
