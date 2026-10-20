@@ -8,19 +8,13 @@
   el.dataset.artist=i;el.dataset.title=a.cn;return el;
  });
  $('#rappers').replaceWith(...rapperPages);
- const memoryPages=memories.map((m,i)=>{
-  const el=makeSlide(i===0?'memories':`memory-${i+1}`,'memory-slide wrap',`
-   <div class="memory-art"><span class="memory-orbit"></span><div class="memory-mark mark-${m.event}" aria-hidden="true">${['⛓','60','“','?'][i]}</div><span class="memory-art-label">MEMORY / ${pad(i+1)}</span></div>
-   <div class="memory-detail">${label(5,`那些瞬间 / ${pad(i+1)}`)}<span class="small-label">${m.kicker}</span><h2>${m.headline.replace('\n','<br>')}</h2><p>${m.copy.replace('\n','<br>')}</p><div class="memory-question">${m.question}</div>${m.event==='mask'?'<button class="button secondary" data-mask>揭开面具 ↗</button><div class="mask-answer" hidden>HipHopMan · <b>欧阳靖 MC JIN</b></div>':''}</div>`);
-  el.dataset.title=m.kicker.split(' / ')[1];return el;
- });
- $('#memories').replaceWith(...memoryPages);
  document.querySelector('.flow-divider').remove();
  $('.hero-copy .button').innerHTML='翻开那个夏天 <span>→</span>';
  $('.scroll-invitation').innerHTML='<span>TURN THE PAGE</span><i>→</i>';
- $('.game-end a').textContent='下一页，回到那些名场面 →';
+ $('.game-end a').textContent='下一页，听听2018之后 →';
  $('.hero-art').style.removeProperty('--parallax');
- const titles={home:'回到2017',summer:'那个夏天',mentors:'制作人阵容',guess:'听歌猜歌名 · 15题',finale:'说唱走进生活',after:'故事继续',closing:'夏天还在歌里'};
+ const titles={home:'回到2017',summer:'那个夏天',mentors:'制作人阵容',guess:'听歌猜歌名 · 15题',closing:'夏天还在歌里'};
+ const legacySections={memories:'new-2018','memory-2':'hits-2018','memory-3':'new-2019','memory-4':'new-2020',finale:'peak-2022',after:'new-2018'};
  const slides=[...document.querySelectorAll('#story > .story-section')];
  const motion=matchMedia('(prefers-reduced-motion: reduce)');
  let current=-1,transitions=[],wheelTotal=0,wheelDirection=0,wheelTime=0,wheelLock=0,touchStart=null;
@@ -28,7 +22,7 @@
  slides.forEach((el,i)=>{el.classList.add('deck-slide');el.hidden=true;el.inert=true;el.tabIndex=-1;el.setAttribute('role','group');el.setAttribute('aria-roledescription','演讲页');el.setAttribute('aria-label',`${i+1} / ${slides.length} · ${pageTitle(el)}`);el.querySelectorAll('.reveal').forEach(node=>node.classList.add('visible'));});
  $('#story').setAttribute('aria-label','回到2017 · 翻页演讲');
  $('#chapterList').innerHTML=slides.map((el,i)=>`<a href="#${el.id}"><span>${pad(i+1)}</span><b>${pageTitle(el)}</b><i>→</i></a>`).join('');
- function indexFromHash(){let id=decodeURIComponent(location.hash.slice(1));if(/^\d+$/.test(id))return Math.max(0,Math.min(slides.length-1,Number(id)-1));const i=slides.findIndex(el=>el.id===id);return i<0?0:i;}
+ function indexFromHash(){let id=decodeURIComponent(location.hash.slice(1));id=legacySections[id]||id;if(/^\d+$/.test(id))return Math.max(0,Math.min(slides.length-1,Number(id)-1));const i=slides.findIndex(el=>el.id===id);return i<0?0:i;}
  function finishTransition(){transitions.forEach(animation=>animation.cancel());transitions=[];slides.forEach((el,i)=>{el.hidden=i!==current;el.inert=i!==current;el.style.zIndex='';});}
  function goTo(index,{historyMode='push',animate=true}={}){
   if(index<0||index>=slides.length||index===current)return;
@@ -47,7 +41,7 @@
   $('#pageNumber').innerHTML=`${pad(index+1)} <span>/ ${pad(slides.length)}</span>`;$('#pageTitle').textContent=pageTitle(next);
   $('#prevPage').disabled=index===0;$('#nextPage').disabled=index===slides.length-1;
   $('#progress').style.width=`${(index+1)/slides.length*100}%`;
-  document.querySelectorAll('.desktop-nav a,#chapterList a').forEach(a=>{const id=a.hash.slice(1),active=id===next.id||(id==='rappers'&&next.dataset.artist!==undefined)||(id==='memories'&&next.classList.contains('memory-slide'));a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+  document.querySelectorAll('.desktop-nav a,#chapterList a').forEach(a=>{const id=a.hash.slice(1),active=id===next.id||(id==='rappers'&&next.dataset.artist!==undefined)||(id==='new-2018'&&next.classList.contains('sequel-slide')&&next.id!=='peak-2022');a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   $('#pageAnnouncement').textContent=`第${index+1}页，共${slides.length}页。${pageTitle(next)}`;
   if(moveFocus)next.focus({preventScroll:true});
  }

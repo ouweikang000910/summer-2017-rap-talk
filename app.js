@@ -2,13 +2,12 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const chapters = [
  ['summer','那个夏天'],['mentors','导师阵容'],['rappers','那些声音'],['guess','听歌猜歌名'],
- ['memories','那些瞬间'],['finale','说唱走进生活'],['after','故事继续'],['closing','夏天还在歌里']
+ ['new-2018','2018 · 新的面孔'],['hits-2018','2018 · 留下的歌'],['new-2019','2019 · 冠军与作品'],['new-2020','2020 · 李佳隆'],['peak-2022','2022 · 巅峰重逢'],['closing','夏天还在歌里']
 ];
 const label = (n,t) => `<div class="eyebrow"><i></i> ${String(n).padStart(2,'0')} / ${t}</div>`;
 const vinyl = () => '<div class="vinyl" aria-hidden="true"><div class="vinyl-label"><b>2017</b><small>REWIND<br>THE SUMMER</small></div></div>';
 const wave = () => `<div class="wave" aria-hidden="true">${Array.from({length:36},(_,i)=>`<i style="--h:${20+(i*37)%80}%;--d:${i*.035}s"></i>`).join('')}</div>`;
 const artistDescriptions = artists.map(a=>a.description);
-const memories = memoryStories;
 $('#story').innerHTML = `
  <section id="home" class="hero story-section">
   <div class="hero-grid grid-texture" aria-hidden="true"></div>
@@ -38,22 +37,30 @@ $('#story').innerHTML = `
  <section id="guess" class="guess story-section"><div class="grid-texture" aria-hidden="true"></div><div class="wrap">
   <div class="guess-heading reveal">${label(4,'把舞台交给大家')}<h2>先别讲了，<em>来听歌！</em></h2><p>15道题，从耳熟能详到进阶挑战。<br>听到熟悉的旋律，就说出歌名和歌手。</p><div class="game-rule"><b>15 <small>题</small></b><span></span><b>随时 <small>播放 / 暂停</small></b><span></span><b>一起 <small>听歌猜歌</small></b></div></div>
   <div class="game-console reveal"><div class="game-top"><span>LISTEN & GUESS</span><span id="gameProgress">01 / 15</span><button data-prepare class="text-button">音乐设置 ↗</button></div><div id="gameRound"></div><div class="game-bottom"><div class="question-selector" id="questionSelector" aria-label="选择猜歌题目"></div></div></div>
-  <div class="game-end"><span>从2017年的声音，听到后来新的作品。</span><a href="#memories">继续往下，回到那些名场面 ↓</a></div>
+  <div class="game-end"><span>从2017年的声音，听到后来新的作品。</span><a href="#new-2018">下一页，听听2018之后 →</a></div>
  </div></section>
- <section id="memories" class="memories story-section wrap">
-  <div class="memory-intro reveal">${label(5,'有些瞬间，过了很久还记得')}<h2>一档节目，<br><em>留下的不只是歌。</em></h2><p>金链子、60秒、那些大家都会接的梗，<br>还有一个藏在面具背后的名字。</p></div>
-  <div class="memory-stories">${memories.map((m,i)=>`<article class="memory-story reveal"><div class="memory-mark mark-${m.event}" aria-hidden="true">${['⛓','60','“','?'][i]}</div><div><span class="small-label">MEMORY ${String(i+1).padStart(2,'0')} / ${m.kicker.split(' / ')[1]}</span><h3>${m.headline.replace('\n','')}</h3><p>${m.copy.replace('\n','')}</p><div class="memory-question">${m.question}</div>${m.event==='mask'?'<button class="button secondary" data-mask>揭开面具 ↗</button><div class="mask-answer" hidden>HipHopMan · <b>欧阳靖 MC JIN</b></div>':''}</div></article>`).join('')}</div>
+ <section id="new-2018" class="sequel-slide sequel-intro story-section" data-title="2018 · 新的面孔">
+  <div class="sequel-copy">${label(5,'2018 / 中国新说唱')}<div class="sequel-year">2018<span>THE NEXT SUMMER</span></div><h2>新的夏天，<br><em>新的面孔。</em></h2><p class="sequel-lead">《中国新说唱》来了。<br>艾热、王以太、那吾克热、ICE……<br>更多名字，开始出现在我们的歌单里。</p><div class="comeback-story"><b>艾热的这一年</b><ol><li>暂别舞台</li><li>复活赛一挑五</li><li>年度冠军</li></ol></div><a class="sequel-source" href="https://ent.ifeng.com/c/7gTlQ6lgUi0" target="_blank" rel="noopener noreferrer">节目资料与照片 · 凤凰网 ↗</a></div>
+  <figure class="sequel-figure finalists-photo"><span class="sequel-photo-tag">THE RAP OF CHINA / 2018</span><img src="assets/sequel-finalists-2018.png" alt="2018中国新说唱四强：ICE、艾热、刘柏辛、那吾克热" width="415" height="385" loading="lazy"><figcaption>2018四强：ICE · 艾热 · 刘柏辛 · 那吾克热</figcaption></figure>
  </section>
- <section id="finale" class="music-life story-section">
-  <div class="life-intro">${label(6,'从舞台，到我们的歌单')}<h2>说唱，也在唱<br><em>我们的生活。</em></h2><p>有的歌陪你出发，有的歌让你放松，<br>有的歌替你说出心里话。</p></div>
-  <div class="life-grid"><article><span>01 / 情绪</span><h3>有些感受，<br>被唱了出来。</h3><p>轻松、失落，或是想念。<br>音乐给情绪一个出口。</p><a href="${musicUrl(1751788692)}" target="_blank" rel="noopener noreferrer">♫ 阿司匹林 ↗</a></article><article><span>02 / 陪伴</span><h3>有些心意，<br>藏在歌里。</h3><p>关于爱、陪伴和时间，<br>说唱也有温柔的一面。</p><a href="${musicUrl(1751785993)}" target="_blank" rel="noopener noreferrer">♫ 别怕变老 ↗</a></article><article><span>03 / 自己</span><h3>有些声音，<br>让人想往前走。</h3><p>把生活里的经历，<br>唱成自己的表达。</p><a href="${musicUrl(1688680607)}" target="_blank" rel="noopener noreferrer">♫ Hey KONG ↗</a></article></div>
-  <p class="life-question">刚才的15首歌里，<strong>你最想把哪首加入歌单？</strong><span>↗</span></p>
+ <section id="hits-2018" class="sequel-slide sequel-hits story-section" data-title="2018 · 留下的歌">
+  <div class="sequel-heading">${label(6,'2018 / 从舞台到歌单')}<h2>你没追节目，<br><em>也可能听过。</em></h2><p>那一年的舞台，留下了这两首熟悉的歌。</p></div>
+  <div class="hit-records"><article class="hit-record star-record"><div class="record-art" aria-hidden="true">${vinyl().replace('2017','2018')}<span>01 / STAR FALLING</span></div><div class="record-copy"><small>艾热 AIR × 李佳隆</small><h3>星球坠落</h3><p>说唱、旋律，两种声音碰在一起。<br>刚才第10题，就是这首歌。</p><span class="record-year">中国新说唱 · 2018</span></div></article><article class="hit-record eyes-record"><div class="record-art" aria-hidden="true">${vinyl().replace('2017','2018')}<span>02 / ALL EYES ON YOU</span></div><div class="record-copy"><small>王以太</small><h3>目不转睛</h3><p>记住那个好听的副歌，<br>也记住了王以太的声音。</p><span class="record-year">中国新说唱 · 2018</span></div></article></div>
+  <a class="sequel-source" href="https://tw.iqiyi.com/kszt/zgxsctw.html" target="_blank" rel="noopener noreferrer">舞台资料 · 爱奇艺2018节目专题 ↗</a>
  </section>
- <section id="after" class="after story-section wrap">
-  <div class="after-intro reveal">${label(7,'2017之后')}<h2>节目结束了，<br><em>故事还在继续。</em></h2><p>2017，我们开始认识他们。<br>后来，我们在更多舞台，听见他们。</p></div>
-  <div class="year-stories">${[['2018','中国新说唱','新面孔，接过麦克风。','艾热 · 那吾克热 · ICE'],['2020','说唱新世代','更多不同的表达，被听见。','姜云升 · 圣代 · 沙一汀 · 于贞'],['2022','中国说唱巅峰对决','熟悉的面孔，再次相聚。','GAI · 艾热 · Tizzy T · 刘聪']].map(a=>`<article class="year-story reveal"><b>${a[0]}</b><div><h3>${a[1]}</h3><p>${a[2]}</p><small>${a[3]}</small></div></article>`).join('')}</div>
+ <section id="new-2019" class="sequel-slide sequel-voices story-section" data-title="2019 · 冠军与作品">
+  <figure class="sequel-figure keyng-photo"><span class="sequel-photo-tag">KEYNG / 杨和苏</span><img src="assets/sequel-keyng-2019.jpg" alt="杨和苏在2019中国新说唱总决赛演唱命不由天" width="2784" height="1856" loading="lazy"><figcaption>杨和苏 · 2019总决赛《命不由天》舞台</figcaption></figure>
+  <div class="sequel-copy">${label(7,'2019 / 中国新说唱')}<div class="sequel-year">2019<span>THE VOICES WE REMEMBER</span></div><h2>冠军之外，<br><em>还有被记住的歌。</em></h2><div class="voice-stories"><article><span>01 / 年度冠军</span><h3>杨和苏</h3><p>总决赛唱响《命不由天》，<br>拿下这一年的冠军。</p></article><article><span>02 / 一首写给自己的歌</span><h3>刘聪 · Hey KONG</h3><p>和过去的自己说说话。<br>刚才第11题，你听见的就是他的声音。</p></article></div><a class="sequel-source" href="https://ent.ifeng.com/c/7pdQgirCIuu" target="_blank" rel="noopener noreferrer">节目资料与舞台照片 · 凤凰网 ↗</a></div>
  </section>
- <section id="closing" class="closing story-section"><div class="closing-year" aria-hidden="true">2017</div><div class="wrap reveal">${label(8,'回到那个夏天')}<h2>有些夏天，<br>会一直<em>在歌里。</em></h2><p>谢谢你，和我一起回到2017。<br>希望今天，你也记住了一首歌、一个人、一种声音。</p><span class="closing-thanks">THANK YOU <i>✳</i></span><a href="#guess" class="text-button">还想听？回到猜歌区 ↗</a></div></section>`;
+ <section id="new-2020" class="sequel-slide sequel-return story-section" data-title="2020 · 李佳隆">
+  <div class="sequel-copy">${label(8,'2020 / 中国新说唱')}<div class="sequel-year">2020<span>JELLORIO / 李佳隆</span></div><h2>从《星球坠落》，<br><em>走到冠军。</em></h2><p class="sequel-lead">2018年，和艾热一起唱《星球坠落》。<br>2020年，再次参赛的李佳隆拿下年度冠军。</p><div class="return-journey"><div><span>2018</span><b>一首合作曲</b><small>艾热 × 李佳隆</small></div><i aria-hidden="true">→</i><div><span>2020</span><b>年度总冠军</b><small>中国新说唱</small></div></div><a class="sequel-source" href="https://www.iqiyi.com/common/20201102/e8ba2febfbe19ace.html" target="_blank" rel="noopener noreferrer">冠军资料与海报 · 爱奇艺 ↗</a></div>
+  <figure class="sequel-figure champion-poster"><img src="assets/sequel-jellorio-2020.jpg" alt="爱奇艺发布的2020中国新说唱年度冠军李佳隆海报" width="2160" height="3840" loading="lazy"><figcaption>李佳隆 · 2020年度冠军官方海报</figcaption></figure>
+ </section>
+ <section id="peak-2022" class="sequel-slide sequel-peak story-section" data-title="2022 · 巅峰重逢">
+  <div class="peak-top"><div class="sequel-copy">${label(9,'2022 / 中国说唱巅峰对决')}<div class="sequel-year">2022<span>BACK ON THE SAME STAGE</span></div><h2>熟悉的名字，<br><em>站上同一个舞台。</em></h2><p class="sequel-lead">GAI、艾热、杨和苏、李佳隆、早安……<br>来自不同届节目的说唱歌手，组队再战。</p></div><figure class="sequel-figure peak-photo"><img src="assets/sequel-peak-2022.jpg" alt="2022中国说唱巅峰对决全体说唱歌手官方集结海报" width="1013" height="569" loading="lazy"><figcaption>《中国说唱巅峰对决》2022官方集结海报</figcaption></figure></div>
+  <div class="peak-tracks"><article><span>01 / 早安</span><h3>麒麟</h3><small>刚才的第09题</small></article><article><span>02 / 盛宇 · 刘聪 · ICE</span><h3>隆里电丝</h3><small>刚才的第08题</small></article><article><span>03 / 杨和苏 · 早安 · 王以太</span><h3>一席之地</h3><small>一起为团队而战</small></article></div><a class="sequel-source" href="https://www.iq.com/album/2fkj4571u8d?lang=zh_cn" target="_blank" rel="noopener noreferrer">节目阵容与海报 · 爱奇艺 ↗</a>
+ </section>
+ <section id="closing" class="closing story-section"><div class="closing-year" aria-hidden="true">2017</div><div class="wrap reveal">${label(10,'从2017，到后来的夏天')}<h2>有些夏天，<br>会一直<em>在歌里。</em></h2><p>从2017的第一次见面，到后来一次次重逢。<br>谢谢大家，和我一起听到这里。</p><span class="closing-thanks">THANK YOU <i>✳</i></span><a href="#guess" class="text-button">还想听？回到猜歌区 ↗</a></div></section>`;
 
 let round=0, revealed=new Set(), audioFiles={}, audioOffsets={};
 let audio=$('#quizAudio'), playing=false, loading=false, generation=0, hasStarted=false, clipFinished=false;
@@ -228,7 +235,6 @@ document.addEventListener('click',e=>{const t=e.target.closest('button,a');if(!t
  if(t.matches('[data-remove-audio]'))removeAudio(Number(t.dataset.removeAudio));
  if(t.matches('[data-prepare]'))$('#prepareDialog').showModal();
  if(t.matches('[data-close]'))document.getElementById(t.dataset.close).close();
- if(t.matches('[data-mask]')){$('.mask-answer').hidden=false;t.hidden=true;}
  if(t.matches('#chapterList a'))$('#outlineDialog').close();
 });
 document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.repeat||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)||document.querySelector('dialog[open]'))return;const key=e.key.toLowerCase();if(!$('#blackout').hidden){if(key==='b'||key==='escape')$('#blackout').hidden=true;return;}if(key==='f')fullscreen();if(key==='o')$('#outlineDialog').showModal();if(key==='r'&&activeSection==='guess')revealAnswer();if(key==='b'){stopPlayback();$('#blackout').hidden=false;}});

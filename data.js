@@ -506,33 +506,3 @@ const songs = [
     }
   }
 ];
-const memoryStories = [
-  {
-    "event": "chain",
-    "kicker": "MEMORY 01 / 千人海选",
-    "headline": "一条金链子，\n一个开始。",
-    "copy": "在海选现场，让制作人记住你。\n拿到金链子，才有继续往前的机会。",
-    "question": "如果只有一次开口机会，你会唱哪一段？"
-  },
-  {
-    "event": "seconds",
-    "kicker": "MEMORY 02 / 60秒考核",
-    "headline": "60秒，\n留下你的声音。",
-    "copy": "一个舞台，一次短暂的展示。\n节奏、歌词、临场状态，都摆在眼前。",
-    "question": "短短一分钟，够不够让你记住一个人？"
-  },
-  {
-    "event": "meme",
-    "kicker": "MEMORY 03 / 那些火遍全网的梗",
-    "headline": "你有\nFreestyle吗？",
-    "copy": "一句节目里的提问，\n成了那个夏天大家都会接的话。",
-    "question": "“我觉得可以。”　“我觉得不行。”"
-  },
-  {
-    "event": "mask",
-    "kicker": "MEMORY 04 / HipHopMan揭面",
-    "headline": "面具背后，\n是谁的声音？",
-    "copy": "先以HipHopMan的身份被听见，\n再让大家认识面具背后的人。",
-    "question": "当身份揭晓，你对刚才的表演会有不同感受吗？"
-  }
-];
