@@ -10,8 +10,8 @@ const ArtistAudio = (() => {
   if (!artist.preview) return '';
   const preview = artist.preview;
   const credit = preview.sourceUrl
-   ? `<a class="preview-source-link" href="${esc(preview.sourceUrl)}" target="_blank" rel="noopener noreferrer">${esc(preview.sourceName)} ↗</a><small>${esc(preview.sourceNote)}</small>`
-   : `<a class="itunes-badge" href="${esc(preview.storeUrl)}" target="_blank" rel="noopener noreferrer" aria-label="在 iTunes 查看${esc(preview.title)}"><img src="assets/itunes-store-badge.svg" alt="Buy on iTunes Store" width="96" height="32"></a><small>provided courtesy of iTunes<br>官方试听片段</small>`;
+   ? `<small>${esc(preview.sourceName)} · ${esc(preview.sourceNote)}</small>`
+   : `<small>provided courtesy of iTunes · 官方试听片段</small>`;
   return `<div class="artist-preview" data-artist-preview="${index}">
    <div class="artist-preview-main"><span class="preview-note" aria-hidden="true">♫</span><div class="preview-copy"><b>${esc(preview.title)}</b><span data-preview-status>${preview.sourceUrl?'歌曲节选':'官方试听'} · 切换人物自动换歌</span></div><button data-artist-sound="${index}" aria-label="开启${esc(artist.cn)}歌曲试听" aria-pressed="false">开启声音</button></div>
    <div class="preview-source">${credit}</div>
