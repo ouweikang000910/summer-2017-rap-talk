@@ -24,7 +24,11 @@ $('#story').innerHTML = `
  <div class="flow-divider" aria-hidden="true"><span>FREESTYLE</span><i>✳</i><span>SUMMER 2017</span><i>✳</i><span>KEEP THE MUSIC GOING</span></div>
  <section id="mentors" class="mentors story-section wrap">
   <div class="section-heading reveal">${label(2,'当年的明星制作人')}<h2>四位制作人，<br><em>三组不同视角。</em></h2><p>不同背景的人，坐到同一个舞台面前。</p></div>
-  <div class="mentor-list"><article class="reveal"><span>01</span><h3>吴亦凡</h3><small>KRIS WU</small><p>当年的流量与话题</p><blockquote>“你有Freestyle吗？”</blockquote></article><article class="reveal"><span>02</span><h3>潘玮柏</h3><small>WILL PAN</small><p>熟悉的流行音乐面孔</p><blockquote>从《快乐崇拜》到说唱舞台</blockquote></article><article class="reveal"><span>03</span><h3>张震岳 <i>&</i><br>MC HotDog 热狗</h3><small>AYAL KOMOD & MC HOTDOG</small><p>音乐创作与说唱经验</p><blockquote>两位音乐人，一个组合</blockquote></article></div>
+  <div class="mentor-list">
+   <article class="reveal"><div class="mentor-photo mentor-kris"><img src="assets/mentor-kriswu.jpg" alt="吴亦凡在2017年中国有嘻哈录制现场" loading="lazy" width="690" height="460"><span class="mentor-number">01</span></div><h3>吴亦凡</h3><small>KRIS WU</small><p>当年的流量与话题</p><blockquote>“你有Freestyle吗？”</blockquote></article>
+   <article class="reveal"><div class="mentor-photo mentor-pan"><img src="assets/mentor-willpan.jpg" alt="潘玮柏在2017年中国有嘻哈录制现场" loading="lazy" width="690" height="460"><span class="mentor-number">02</span></div><h3>潘玮柏</h3><small>WILL PAN</small><p>熟悉的流行音乐面孔</p><blockquote>从《快乐崇拜》到说唱舞台</blockquote></article>
+   <article class="reveal"><div class="mentor-photo mentor-duo"><figure><img src="assets/mentor-ayue.jpg" alt="张震岳在2017年中国有嘻哈录制现场" loading="lazy" width="690" height="1034"><figcaption>张震岳</figcaption></figure><figure><img src="assets/mentor-hotdog.jpg" alt="MC HotDog 热狗在2017年中国有嘻哈录制现场" loading="lazy" width="690" height="999"><figcaption>MC HotDog</figcaption></figure><span class="mentor-number">03</span></div><h3>张震岳 <i>&</i><br>MC HotDog 热狗</h3><small>AYAL KOMOD & MC HOTDOG</small><p>音乐创作与说唱经验</p><blockquote>两位音乐人，一个组合</blockquote></article>
+  </div><a class="mentor-photo-credit" href="https://www.niusnews.com/=P311fg15" target="_blank" rel="noopener noreferrer">照片：中国有嘻哈官方微博 · 妞新闻2017年报道 ↗</a>
  </section>
  <section id="rappers" class="rappers story-section"><div class="wrap">
   <div class="section-heading reveal">${label(3,'那年夏天，我们认识了')}<h2>名字不同，<br><em>声音都很鲜明。</em></h2><p>不用记住他们的生平。<br>先记住一种声音，再慢慢认识一个人。</p></div>
