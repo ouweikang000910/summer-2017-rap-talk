@@ -184,7 +184,7 @@ const artists = [
       "个人风格",
       "2017全国9强"
     ],
-    "song": "江南少爷",
+    "song": "X男人",
     "image": "benzo.jpg",
     "position": "50% 17%",
     "number": "05",
@@ -206,11 +206,11 @@ const artists = [
       }
     ],
     "preview": {
-      "title": "江南少爷 (Live)",
+      "title": "X男人 (Live)",
       "artist": "李大奔",
-      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e0/fb/62/e0fb621a-93f8-6ee6-9ba2-ccc730f3868e/mzaf_15728853457407991493.plus.aac.p.m4a",
-      "storeUrl": "https://music.apple.com/tw/album/%E6%B1%9F%E5%8D%97%E5%B0%91%E7%88%BA-live/1827828546?i=1827828547&uo=4&app=itunes",
-      "trackId": 1827828547
+      "src": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/d8/88/10d8884c-0ca6-0300-4669-bb843924b750/mzaf_12425316094450698857.plus.aac.p.m4a",
+      "storeUrl": "https://music.apple.com/tw/album/x%E7%94%B7%E4%BA%BA-live/1850409994?i=1850410334&uo=4&app=itunes",
+      "trackId": 1850410334
     },
     "imageAlt": "李大奔 BENZO 本人舞台照片，浙江在线2017年报道",
     "photoCredit": {

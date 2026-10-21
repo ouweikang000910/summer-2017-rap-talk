@@ -239,3 +239,9 @@ https://www.youtube.com/watch?v=HWIX9zX_T4o
 
 2026-10-20 演讲页链接清理（20261020c1）
 按用户要求，移除凤凰网、爱奇艺等来源入口、导师照片来源链接、目录中的资料入口及末页“回到猜歌区”按钮。人物照片和试听署名保留为不可点击的文字；演讲页不再包含外部跳转链接。资料源地址保存在本文件供核对，音频在线播放配置保持不变。
+
+2026-10-21 李大奔人物页指定歌曲更新
+自动试听由《江南少爷 (Live)》替换为《X男人 (Live)》，演唱者李大奔 BENZO，收录于《中国新说唱2020 第9期 (Live)》。沿用iTunes官方宣传试听，切到人物页自动播放，不跳转外部网页。
+曲目页：https://music.apple.com/tw/song/1850410334
+元数据：https://itunes.apple.com/lookup?id=1850410334&country=tw
+官方试听：https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/d8/88/10d8884c-0ca6-0300-4669-bb843924b750/mzaf_12425316094450698857.plus.aac.p.m4a
